@@ -175,7 +175,15 @@ Gripp_Employee
 	extendedproperties					VARCHAR(255)	NULL
 )
 
-
+CREATE TABLE
+Gripp_EmployeeFamily
+(
+	employee							VARCHAR(255)	NULL,
+	[name]								VARCHAR(255)	NULL,
+	[date]								VARCHAR(255)	NULL,
+	phone								VARCHAR(255)	NULL,
+	extendedproperties					VARCHAR(255)	NULL
+)
 
 
 
