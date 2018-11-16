@@ -185,7 +185,26 @@ Gripp_EmployeeFamily
 	extendedproperties					VARCHAR(255)	NULL
 )
 
+CREATE TABLE
+Gripp_Hour
+(
+	task								VARCHAR(255)	NULL,
+	status								VARCHAR(255)	NULL,
+	date								VARCHAR(255)	NULL,
+	description							VARCHAR(255)	NULL,
+	amount								VARCHAR(255)	NULL,
+	employee							VARCHAR(255)	NULL,
+	offerprojectbase					VARCHAR(255)	NULL,
+	offerprojectline					VARCHAR(255)	NULL,
+	authorizedon						VARCHAR(255)	NULL,
+	authorizedby						VARCHAR(255)	NULL,
+	definitiveby						VARCHAR(255)	NULL,
+	definitiveon						VARCHAR(255)	NULL,
+	extendedproperties					VARCHAR(255)	NULL
+)
 
+CREATE TABLE
+Gripp_Notification
 
 select
 *
