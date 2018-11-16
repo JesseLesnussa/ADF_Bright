@@ -1,0 +1,23 @@
+{
+	"name": "Bron-SA",
+	"properties": {
+		"runtimeState": "Stopped",
+		"pipelines": [
+			{
+				"pipelineReference": {
+					"referenceName": "BrightSQL",
+					"type": "PipelineReference"
+				}
+			}
+		],
+		"type": "ScheduleTrigger",
+		"typeProperties": {
+			"recurrence": {
+				"frequency": "Hour",
+				"interval": 1,
+				"startTime": "2018-11-16T12:28:00Z",
+				"timeZone": "UTC"
+			}
+		}
+	}
+}

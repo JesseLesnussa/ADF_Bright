@@ -1,0 +1,70 @@
+{
+	"name": "SharpSpring_Leads",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "SharpSpring",
+			"type": "LinkedServiceReference"
+		},
+		"type": "HttpFile",
+		"typeProperties": {
+			"format": {
+				"type": "JsonFormat",
+				"filePattern": "setOfObjects",
+				"jsonNodeReference": "$.['result']['lead']",
+				"jsonPathDefinition": {
+					"id": "['id']",
+					"ownerID": "['ownerID']",
+					"companyName": "['companyName']",
+					"firstName": "['firstName']",
+					"lastName": "['lastName']",
+					"street": "['street']",
+					"city": "['city']",
+					"zipcode": "['zipcode']",
+					"emailAddress": "['emailAddress']",
+					"website": "['website']",
+					"phoneNumber": "['phoneNumber']",
+					"campaignID": "['campaignID']",
+					"trackingID": "['trackingID']",
+					"active": "['active']",
+					"updateTimestamp": "['updateTimestamp']",
+					"createTimestamp": "['createTimestamp']",
+					"leadScoreWeighted": "['leadScoreWeighted']",
+					"isUnsubscribed": "['isUnsubscribed']",
+					"leadStatus": "['leadStatus']",
+					"persona": "['persona']",
+					"contact_permission_5bb4c71120e00": "['contact_permission_5bb4c71120e00']",
+					"referral_page_5bb4c7113295d": "['referral_page_5bb4c7113295d']",
+					"referral_form_5bb4c71156154": "['referral_form_5bb4c71156154']",
+					"gender_5bb4c71168b6f": "['gender_5bb4c71168b6f']",
+					"housenumber_5bb4c71178828": "['housenumber_5bb4c71178828']",
+					"known_from_5bb4c711899a6": "['known_from_5bb4c711899a6']",
+					"privacy_5bb4c711c4b00": "['privacy_5bb4c711c4b00']",
+					"message_5bb4c96f3be80": "['message_5bb4c96f3be80']",
+					"contact_with__5bb4c9ea461f7": "['contact_with__5bb4c9ea461f7']",
+					"gripp_tags_5bbb5e52d8a29": "['gripp_tags_5bbb5e52d8a29']",
+					"account_manager_5bbb5e6ff1eb4": "['account_manager_5bbb5e6ff1eb4']",
+					"initials_5bbb5f671807c": "['initials_5bbb5f671807c']",
+					"insertion_5bbb5fa7df023": "['insertion_5bbb5fa7df023']",
+					"department_5bbb5fdda10e2": "['department_5bbb5fdda10e2']",
+					"___type_5bbb6150d460d": "['___type_5bbb6150d460d']",
+					"leverancier_5bbb639aac43f": "['leverancier_5bbb639aac43f']",
+					"belangrijk_5bbb6de9741ae": "['belangrijk_5bbb6de9741ae']",
+					"lead_5bbb6de97c603": "['lead_5bbb6de97c603']",
+					"klant_5bbb6de985603": "['klant_5bbb6de985603']",
+					"prospect_5bbb6de98eba0": "['prospect_5bbb6de98eba0']",
+					"know_from_5bbc8dc6c6cc6": "['know_from_5bbc8dc6c6cc6']",
+					"brochure_5bc448512d24e": "['brochure_5bc448512d24e']",
+					"uitdaging_iets_anders_5bc44851a3d28": "['uitdaging_iets_anders_5bc44851a3d28']",
+					"uitdaging_meer_leads_generen_5bc44851b1f97": "['uitdaging_meer_leads_generen_5bc44851b1f97']",
+					"uitdaging_meer_rendement_uit_marketing_5bc44851c2b4b": "['uitdaging_meer_rendement_uit_marketing_5bc44851c2b4b']",
+					"uitdaging_meer_website_bezoekers_5bc44851d0d7b": "['uitdaging_meer_website_bezoekers_5bc44851d0d7b']",
+					"uitdaging_van_leads_klanten_maken_5bc44851df0fb": "['uitdaging_van_leads_klanten_maken_5bc44851df0fb']"
+				}
+			},
+			"requestMethod": "Post",
+			"additionalHeaders": "",
+			"requestBody": "{\n  \"method\":\"getLeads\",\n  \"params\":{\n    \"where\":\"\"\n  },\n\n  \"id\": \"123\"\n}\n"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

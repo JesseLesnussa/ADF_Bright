@@ -1,0 +1,12 @@
+{
+	"name": "SharpSpring",
+	"type": "Microsoft.DataFactory/factories/linkedservices",
+	"properties": {
+		"type": "HttpServer",
+		"typeProperties": {
+			"url": "https://api.sharpspring.com/pubapi/v1.2/?accountID=05D6CE1DEF56499059AC7C49ECB7226A&secretKey=F96BC6D274C8561AFF27DC6FAF617966",
+			"enableServerCertificateValidation": false,
+			"authenticationType": "Anonymous"
+		}
+	}
+}

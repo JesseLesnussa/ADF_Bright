@@ -1,0 +1,72 @@
+{
+	"name": "SharpSpring_Users",
+	"properties": {
+		"description": "Gebruikers van Sharpspring",
+		"linkedServiceName": {
+			"referenceName": "SharpSpring",
+			"type": "LinkedServiceReference"
+		},
+		"parameters": {
+			"Test": {
+				"type": "String",
+				"defaultValue": "Testval"
+			}
+		},
+		"type": "HttpFile",
+		"structure": [
+			{
+				"name": "id",
+				"type": "String"
+			},
+			{
+				"name": "firstName",
+				"type": "String"
+			},
+			{
+				"name": "lastName",
+				"type": "String"
+			},
+			{
+				"name": "displayName",
+				"type": "String"
+			},
+			{
+				"name": "emailAddress",
+				"type": "String"
+			},
+			{
+				"name": "isActive",
+				"type": "String"
+			},
+			{
+				"name": "isReseller",
+				"type": "String"
+			},
+			{
+				"name": "userTimezone",
+				"type": "String"
+			}
+		],
+		"typeProperties": {
+			"format": {
+				"type": "JsonFormat",
+				"filePattern": "setOfObjects",
+				"jsonNodeReference": "$.['result']['userProfile']",
+				"jsonPathDefinition": {
+					"id": "['id']",
+					"firstName": "['firstName']",
+					"lastName": "['lastName']",
+					"displayName": "['displayName']",
+					"emailAddress": "['emailAddress']",
+					"isActive": "['isActive']",
+					"isReseller": "['isReseller']",
+					"userTimezone": "['userTimezone']"
+				}
+			},
+			"relativeUrl": "",
+			"requestMethod": "Post",
+			"requestBody": "{\n  \"method\":\"getUserProfiles\",\n  \"params\":{\n    \"where\":\"\"\n  },\n\n  \"id\": \"123\"\n}\n"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

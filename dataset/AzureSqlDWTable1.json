@@ -1,0 +1,48 @@
+{
+	"name": "AzureSqlDWTable1",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureSqlDW1",
+			"type": "LinkedServiceReference"
+		},
+		"type": "AzureSqlDWTable",
+		"structure": [
+			{
+				"name": "id",
+				"type": "String"
+			},
+			{
+				"name": "firstName",
+				"type": "String"
+			},
+			{
+				"name": "lastName",
+				"type": "String"
+			},
+			{
+				"name": "displayName",
+				"type": "String"
+			},
+			{
+				"name": "emailAddress",
+				"type": "String"
+			},
+			{
+				"name": "isActive",
+				"type": "String"
+			},
+			{
+				"name": "isReseller",
+				"type": "String"
+			},
+			{
+				"name": "userTimeZone",
+				"type": "String"
+			}
+		],
+		"typeProperties": {
+			"tableName": "[dbo].[SS_Users]"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

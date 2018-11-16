@@ -1,0 +1,53 @@
+{
+	"name": "AzureBlob1",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureBlobStorage1",
+			"type": "LinkedServiceReference"
+		},
+		"type": "AzureBlob",
+		"structure": [
+			{
+				"name": "id",
+				"type": "String"
+			},
+			{
+				"name": "firstName",
+				"type": "String"
+			},
+			{
+				"name": "lastName",
+				"type": "String"
+			},
+			{
+				"name": "displayName",
+				"type": "String"
+			},
+			{
+				"name": "emailAddress",
+				"type": "String"
+			},
+			{
+				"name": "isActive",
+				"type": "String"
+			},
+			{
+				"name": "isReseller",
+				"type": "String"
+			},
+			{
+				"name": "userTimezone",
+				"type": "String"
+			}
+		],
+		"typeProperties": {
+			"format": {
+				"type": "JsonFormat",
+				"filePattern": "setOfObjects"
+			},
+			"fileName": "",
+			"folderPath": "adfstagedpolybasetempdata"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}
