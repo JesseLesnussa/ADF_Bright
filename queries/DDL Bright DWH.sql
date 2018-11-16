@@ -139,7 +139,41 @@ Gripp_Contact
 	extendedproperties					VARCHAR(255)	NULL
 )
 
-
+CREATE TABLE
+Gripp_Employee
+(
+	userphoto							VARCHAR(255)	NULL,
+	title								VARCHAR(255)	NULL,
+	screenname							VARCHAR(255)	NULL,
+	number								VARCHAR(255)	NULL,
+	dateofbirth							VARCHAR(255)	NULL,
+	socialsecuritynumber				VARCHAR(255)	NULL,
+	emailprivate						VARCHAR(255)	NULL,
+	bankaccount							VARCHAR(255)	NULL,
+	bankcity							VARCHAR(255)	NULL,
+	bankascription						VARCHAR(255)	NULL,
+	notes								VARCHAR(255)	NULL,
+	employeesince						VARCHAR(255)	NULL,
+	username							VARCHAR(255)	NULL,
+	active								VARCHAR(255)	NULL,
+	[role]								VARCHAR(255)	NULL,
+	email								VARCHAR(255)	NULL,
+	phone								VARCHAR(255)	NULL,
+	mobile								VARCHAR(255)	NULL,
+	street								VARCHAR(255)	NULL,
+	adresline2							VARCHAR(255)	NULL,
+	streetnumber						VARCHAR(255)	NULL,
+	zipcode								VARCHAR(255)	NULL,
+	city								VARCHAR(255)	NULL,
+	country								VARCHAR(255)	NULL,
+	[function]							VARCHAR(255)	NULL,
+	salutation							VARCHAR(255)	NULL,
+	initials							VARCHAR(255)	NULL,
+	firstname							VARCHAR(255)	NULL,
+	infix								VARCHAR(255)	NULL,
+	lastname							VARCHAR(255)	NULL,
+	extendedproperties					VARCHAR(255)	NULL
+)
 
 
 
