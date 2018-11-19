@@ -161,6 +161,12 @@
 								"retryIntervalInSeconds": 30,
 								"secureOutput": false,
 								"secureInput": false
+							},
+							"typeProperties": {
+								"dataset": {
+									"referenceName": "BrightSQL",
+									"type": "DatasetReference"
+								}
 							}
 						}
 					]
