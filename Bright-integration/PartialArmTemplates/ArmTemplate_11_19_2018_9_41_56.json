@@ -1,0 +1,486 @@
+{
+	"$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"type": "string",
+			"metadata": "Data Factory Name",
+			"defaultValue": "bright-integration"
+		}
+	},
+	"variables": {
+		"factoryId": "[concat('Microsoft.DataFactory/factories/', parameters('factoryName'))]"
+	},
+	"resources": [
+		{
+			"name": "[concat(parameters('factoryName'), '/BrightSQL')]",
+			"type": "Microsoft.DataFactory/factories/pipelines",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"activities": [
+					{
+						"name": "GetDataFromAPI",
+						"type": "Copy",
+						"policy": {
+							"timeout": "7.00:00:00",
+							"retry": 0,
+							"retryIntervalInSeconds": 30,
+							"secureOutput": false,
+							"secureInput": false
+						},
+						"typeProperties": {
+							"source": {
+								"type": "HttpSource",
+								"httpRequestTimeout": "00:01:40"
+							},
+							"sink": {
+								"type": "BlobSink"
+							},
+							"enableStaging": false,
+							"dataIntegrationUnits": 0,
+							"translator": {
+								"type": "TabularTranslator",
+								"columnMappings": {
+									"id": "id",
+									"firstName": "firstName",
+									"lastName": "lastName",
+									"displayName": "displayName",
+									"emailAddress": "emailAddress",
+									"isActive": "isActive",
+									"isReseller": "isReseller",
+									"userTimezone": "userTimezone"
+								}
+							}
+						},
+						"inputs": [
+							{
+								"referenceName": "SharpSpring_Users",
+								"type": "DatasetReference"
+							}
+						],
+						"outputs": [
+							{
+								"referenceName": "AzureBlob1",
+								"type": "DatasetReference"
+							}
+						]
+					},
+					{
+						"name": "InsertIntoSA",
+						"type": "Copy",
+						"dependsOn": [
+							{
+								"activity": "GetDataFromAPI",
+								"dependencyConditions": [
+									"Succeeded"
+								]
+							}
+						],
+						"policy": {
+							"timeout": "7.00:00:00",
+							"retry": 0,
+							"retryIntervalInSeconds": 30,
+							"secureOutput": false,
+							"secureInput": false
+						},
+						"typeProperties": {
+							"source": {
+								"type": "BlobSource",
+								"recursive": true
+							},
+							"sink": {
+								"type": "SqlSink",
+								"writeBatchSize": 10000
+							},
+							"enableStaging": false,
+							"dataIntegrationUnits": 0,
+							"translator": {
+								"type": "TabularTranslator",
+								"columnMappings": {
+									"id": "id",
+									"firstName": "firstName",
+									"lastName": "lastName",
+									"displayName": "displayName",
+									"emailAddress": "emailAddress",
+									"isActive": "isActive",
+									"isReseller": "isReseller",
+									"userTimezone": "userTimeZone"
+								}
+							}
+						},
+						"inputs": [
+							{
+								"referenceName": "AzureBlob1",
+								"type": "DatasetReference"
+							}
+						],
+						"outputs": [
+							{
+								"referenceName": "BrightSQL",
+								"type": "DatasetReference"
+							}
+						]
+					},
+					{
+						"name": "BrightSQL",
+						"type": "ExecuteSSISPackage",
+						"dependsOn": [
+							{
+								"activity": "InsertIntoSA",
+								"dependencyConditions": [
+									"Succeeded"
+								]
+							}
+						],
+						"policy": {
+							"timeout": "7.00:00:00",
+							"retry": 0,
+							"retryIntervalInSeconds": 30,
+							"secureOutput": false,
+							"secureInput": false
+						},
+						"typeProperties": {
+							"packageLocation": {
+								"packagePath": "brightSQL/Bright ETL/Package.dtsx"
+							},
+							"loggingLevel": "Basic",
+							"connectVia": {
+								"referenceName": "integrationRuntime1",
+								"type": "IntegrationRuntimeReference"
+							}
+						}
+					}
+				]
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/datasets/SharpSpring_Users')]",
+				"[concat(variables('factoryId'), '/datasets/AzureBlob1')]",
+				"[concat(variables('factoryId'), '/datasets/BrightSQL')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/AzureBlob1')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "AzureBlobStorage1",
+					"type": "LinkedServiceReference"
+				},
+				"type": "AzureBlob",
+				"structure": [
+					{
+						"name": "id",
+						"type": "String"
+					},
+					{
+						"name": "firstName",
+						"type": "String"
+					},
+					{
+						"name": "lastName",
+						"type": "String"
+					},
+					{
+						"name": "displayName",
+						"type": "String"
+					},
+					{
+						"name": "emailAddress",
+						"type": "String"
+					},
+					{
+						"name": "isActive",
+						"type": "String"
+					},
+					{
+						"name": "isReseller",
+						"type": "String"
+					},
+					{
+						"name": "userTimezone",
+						"type": "String"
+					}
+				],
+				"typeProperties": {
+					"format": {
+						"type": "JsonFormat",
+						"filePattern": "setOfObjects"
+					},
+					"fileName": "",
+					"folderPath": "adfstagedpolybasetempdata"
+				}
+			}
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/AzureSqlDWTable1')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "AzureSqlDW1",
+					"type": "LinkedServiceReference"
+				},
+				"type": "AzureSqlDWTable",
+				"structure": [
+					{
+						"name": "id",
+						"type": "String"
+					},
+					{
+						"name": "firstName",
+						"type": "String"
+					},
+					{
+						"name": "lastName",
+						"type": "String"
+					},
+					{
+						"name": "displayName",
+						"type": "String"
+					},
+					{
+						"name": "emailAddress",
+						"type": "String"
+					},
+					{
+						"name": "isActive",
+						"type": "String"
+					},
+					{
+						"name": "isReseller",
+						"type": "String"
+					},
+					{
+						"name": "userTimeZone",
+						"type": "String"
+					}
+				],
+				"typeProperties": {
+					"tableName": "[concat('[', 'dbo].[SS_Users]')]"
+				}
+			}
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/BrightSQL')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "SA_Users",
+					"type": "LinkedServiceReference"
+				},
+				"type": "AzureSqlTable",
+				"structure": [
+					{
+						"name": "id",
+						"type": "String"
+					},
+					{
+						"name": "firstName",
+						"type": "String"
+					},
+					{
+						"name": "lastName",
+						"type": "String"
+					},
+					{
+						"name": "displayName",
+						"type": "String"
+					},
+					{
+						"name": "emailAddress",
+						"type": "String"
+					},
+					{
+						"name": "isActive",
+						"type": "String"
+					},
+					{
+						"name": "isReseller",
+						"type": "String"
+					},
+					{
+						"name": "userTimeZone",
+						"type": "String"
+					}
+				],
+				"typeProperties": {
+					"tableName": "[concat('[', 'dbo].[SpringSharp_Users]')]"
+				}
+			}
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/SharpSpring_Leads')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "SharpSpring",
+					"type": "LinkedServiceReference"
+				},
+				"type": "HttpFile",
+				"typeProperties": {
+					"format": {
+						"type": "JsonFormat",
+						"filePattern": "setOfObjects",
+						"jsonNodeReference": "$.['result']['lead']",
+						"jsonPathDefinition": {
+							"id": "[concat('[', '''id'']')]",
+							"ownerID": "[concat('[', '''ownerID'']')]",
+							"companyName": "[concat('[', '''companyName'']')]",
+							"firstName": "[concat('[', '''firstName'']')]",
+							"lastName": "[concat('[', '''lastName'']')]",
+							"street": "[concat('[', '''street'']')]",
+							"city": "[concat('[', '''city'']')]",
+							"zipcode": "[concat('[', '''zipcode'']')]",
+							"emailAddress": "[concat('[', '''emailAddress'']')]",
+							"website": "[concat('[', '''website'']')]",
+							"phoneNumber": "[concat('[', '''phoneNumber'']')]",
+							"campaignID": "[concat('[', '''campaignID'']')]",
+							"trackingID": "[concat('[', '''trackingID'']')]",
+							"active": "[concat('[', '''active'']')]",
+							"updateTimestamp": "[concat('[', '''updateTimestamp'']')]",
+							"createTimestamp": "[concat('[', '''createTimestamp'']')]",
+							"leadScoreWeighted": "[concat('[', '''leadScoreWeighted'']')]",
+							"isUnsubscribed": "[concat('[', '''isUnsubscribed'']')]",
+							"leadStatus": "[concat('[', '''leadStatus'']')]",
+							"persona": "[concat('[', '''persona'']')]",
+							"contact_permission_5bb4c71120e00": "[concat('[', '''contact_permission_5bb4c71120e00'']')]",
+							"referral_page_5bb4c7113295d": "[concat('[', '''referral_page_5bb4c7113295d'']')]",
+							"referral_form_5bb4c71156154": "[concat('[', '''referral_form_5bb4c71156154'']')]",
+							"gender_5bb4c71168b6f": "[concat('[', '''gender_5bb4c71168b6f'']')]",
+							"housenumber_5bb4c71178828": "[concat('[', '''housenumber_5bb4c71178828'']')]",
+							"known_from_5bb4c711899a6": "[concat('[', '''known_from_5bb4c711899a6'']')]",
+							"privacy_5bb4c711c4b00": "[concat('[', '''privacy_5bb4c711c4b00'']')]",
+							"message_5bb4c96f3be80": "[concat('[', '''message_5bb4c96f3be80'']')]",
+							"contact_with__5bb4c9ea461f7": "[concat('[', '''contact_with__5bb4c9ea461f7'']')]",
+							"gripp_tags_5bbb5e52d8a29": "[concat('[', '''gripp_tags_5bbb5e52d8a29'']')]",
+							"account_manager_5bbb5e6ff1eb4": "[concat('[', '''account_manager_5bbb5e6ff1eb4'']')]",
+							"initials_5bbb5f671807c": "[concat('[', '''initials_5bbb5f671807c'']')]",
+							"insertion_5bbb5fa7df023": "[concat('[', '''insertion_5bbb5fa7df023'']')]",
+							"department_5bbb5fdda10e2": "[concat('[', '''department_5bbb5fdda10e2'']')]",
+							"___type_5bbb6150d460d": "[concat('[', '''___type_5bbb6150d460d'']')]",
+							"leverancier_5bbb639aac43f": "[concat('[', '''leverancier_5bbb639aac43f'']')]",
+							"belangrijk_5bbb6de9741ae": "[concat('[', '''belangrijk_5bbb6de9741ae'']')]",
+							"lead_5bbb6de97c603": "[concat('[', '''lead_5bbb6de97c603'']')]",
+							"klant_5bbb6de985603": "[concat('[', '''klant_5bbb6de985603'']')]",
+							"prospect_5bbb6de98eba0": "[concat('[', '''prospect_5bbb6de98eba0'']')]",
+							"know_from_5bbc8dc6c6cc6": "[concat('[', '''know_from_5bbc8dc6c6cc6'']')]",
+							"brochure_5bc448512d24e": "[concat('[', '''brochure_5bc448512d24e'']')]",
+							"uitdaging_iets_anders_5bc44851a3d28": "[concat('[', '''uitdaging_iets_anders_5bc44851a3d28'']')]",
+							"uitdaging_meer_leads_generen_5bc44851b1f97": "[concat('[', '''uitdaging_meer_leads_generen_5bc44851b1f97'']')]",
+							"uitdaging_meer_rendement_uit_marketing_5bc44851c2b4b": "[concat('[', '''uitdaging_meer_rendement_uit_marketing_5bc44851c2b4b'']')]",
+							"uitdaging_meer_website_bezoekers_5bc44851d0d7b": "[concat('[', '''uitdaging_meer_website_bezoekers_5bc44851d0d7b'']')]",
+							"uitdaging_van_leads_klanten_maken_5bc44851df0fb": "[concat('[', '''uitdaging_van_leads_klanten_maken_5bc44851df0fb'']')]"
+						}
+					},
+					"requestMethod": "Post",
+					"additionalHeaders": "",
+					"requestBody": "{\n  \"method\":\"getLeads\",\n  \"params\":{\n    \"where\":\"\"\n  },\n\n  \"id\": \"123\"\n}\n"
+				}
+			}
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/SharpSpring_Users')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"description": "Gebruikers van Sharpspring",
+				"linkedServiceName": {
+					"referenceName": "SharpSpring",
+					"type": "LinkedServiceReference"
+				},
+				"parameters": {
+					"Test": {
+						"type": "String",
+						"defaultValue": "Testval"
+					}
+				},
+				"type": "HttpFile",
+				"structure": [
+					{
+						"name": "id",
+						"type": "String"
+					},
+					{
+						"name": "firstName",
+						"type": "String"
+					},
+					{
+						"name": "lastName",
+						"type": "String"
+					},
+					{
+						"name": "displayName",
+						"type": "String"
+					},
+					{
+						"name": "emailAddress",
+						"type": "String"
+					},
+					{
+						"name": "isActive",
+						"type": "String"
+					},
+					{
+						"name": "isReseller",
+						"type": "String"
+					},
+					{
+						"name": "userTimezone",
+						"type": "String"
+					}
+				],
+				"typeProperties": {
+					"format": {
+						"type": "JsonFormat",
+						"filePattern": "setOfObjects",
+						"jsonNodeReference": "$.['result']['userProfile']",
+						"jsonPathDefinition": {
+							"id": "[concat('[', '''id'']')]",
+							"firstName": "[concat('[', '''firstName'']')]",
+							"lastName": "[concat('[', '''lastName'']')]",
+							"displayName": "[concat('[', '''displayName'']')]",
+							"emailAddress": "[concat('[', '''emailAddress'']')]",
+							"isActive": "[concat('[', '''isActive'']')]",
+							"isReseller": "[concat('[', '''isReseller'']')]",
+							"userTimezone": "[concat('[', '''userTimezone'']')]"
+						}
+					},
+					"relativeUrl": "",
+					"requestMethod": "Post",
+					"requestBody": "{\n  \"method\":\"getUserProfiles\",\n  \"params\":{\n    \"where\":\"\"\n  },\n\n  \"id\": \"123\"\n}\n"
+				}
+			}
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/Bron-SA')]",
+			"type": "Microsoft.DataFactory/factories/triggers",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"runtimeState": "Started",
+				"pipelines": [
+					{
+						"pipelineReference": {
+							"referenceName": "BrightSQL",
+							"type": "PipelineReference"
+						}
+					}
+				],
+				"type": "ScheduleTrigger",
+				"typeProperties": {
+					"recurrence": {
+						"frequency": "Hour",
+						"interval": 1,
+						"startTime": "2018-11-16T12:28:00.000Z",
+						"timeZone": "UTC"
+					}
+				}
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/pipelines/BrightSQL')]"
+			]
+		}
+	]
+}
