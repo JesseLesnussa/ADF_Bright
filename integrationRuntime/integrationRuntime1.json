@@ -5,8 +5,8 @@
 		"typeProperties": {
 			"computeProperties": {
 				"location": "West Europe",
-				"nodeSize": "Standard_A4_v2",
-				"numberOfNodes": 2,
+				"nodeSize": "Standard_D1_v2",
+				"numberOfNodes": 1,
 				"maxParallelExecutionsPerNode": 1
 			},
 			"ssisProperties": {
