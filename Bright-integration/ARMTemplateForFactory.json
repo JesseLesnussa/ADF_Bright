@@ -56,7 +56,14 @@
 					{
 						"name": "GetDataFromAPI",
 						"type": "Copy",
-						"dependsOn": [],
+						"dependsOn": [
+							{
+								"activity": "ForEach1",
+								"dependencyConditions": [
+									"Succeeded"
+								]
+							}
+						],
 						"policy": {
 							"timeout": "7.00:00:00",
 							"retry": 0,
@@ -192,8 +199,59 @@
 								"type": "IntegrationRuntimeReference"
 							}
 						}
+					},
+					{
+						"name": "ForEach1",
+						"type": "ForEach",
+						"dependsOn": [],
+						"userProperties": [],
+						"typeProperties": {
+							"items": {
+								"value": "@variables('APIs')",
+								"type": "Expression"
+							},
+							"isSequential": true,
+							"activities": [
+								{
+									"name": "Get Metadata1",
+									"type": "GetMetadata",
+									"dependsOn": [],
+									"policy": {
+										"timeout": "7.00:00:00",
+										"retry": 0,
+										"retryIntervalInSeconds": 30,
+										"secureOutput": false,
+										"secureInput": false
+									},
+									"userProperties": [],
+									"typeProperties": {
+										"dataset": {
+											"referenceName": "BrightSQL",
+											"type": "DatasetReference",
+											"parameters": {}
+										}
+									}
+								}
+							]
+						}
 					}
 				],
+				"variables": {
+					"APIs": {
+						"type": "Array",
+						"defaultValue": [
+							{
+								"name": "A"
+							},
+							{
+								"name": "B"
+							},
+							{
+								"name": "C"
+							}
+						]
+					}
+				},
 				"annotations": []
 			},
 			"dependsOn": [
