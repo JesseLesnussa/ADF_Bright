@@ -203,6 +203,12 @@ Gripp_Hour
 	extendedproperties					VARCHAR(255)	NULL
 )
 
+
+
+-- To-do:
+		-- DDL uitwerken
+		-- Issue password
+
 CREATE TABLE
 Gripp_Notification
 
