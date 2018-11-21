@@ -59,10 +59,12 @@
 				"type": "Array",
 				"defaultValue": [
 					{
-						"method": "getUserProfiles"
+						"method": "getUserProfiles",
+						"entiteit": "userProfile"
 					},
 					{
-						"method": "getCampaigns"
+						"method": "getCampaigns",
+						"entiteit": "campaign"
 					}
 				]
 			}

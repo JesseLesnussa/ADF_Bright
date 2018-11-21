@@ -10,6 +10,10 @@
 			"method": {
 				"type": "String",
 				"defaultValue": "getUserProfiles"
+			},
+			"entiteit": {
+				"type": "String",
+				"defaultValue": "userProfile"
 			}
 		},
 		"type": "HttpFile",
