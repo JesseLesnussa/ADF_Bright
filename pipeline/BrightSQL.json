@@ -178,7 +178,7 @@
 									"referenceName": "SharpSpring",
 									"type": "DatasetReference",
 									"parameters": {
-										"method": "Testval"
+										"method": "getUserProfiles"
 									}
 								}
 							],
