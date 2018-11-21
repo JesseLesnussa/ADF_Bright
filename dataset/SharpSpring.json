@@ -1,15 +1,15 @@
 {
-	"name": "SharpSpring_Users",
+	"name": "SharpSpring",
 	"properties": {
-		"description": "Gebruikers van Sharpspring",
+		"description": "SharpSpring API",
 		"linkedServiceName": {
 			"referenceName": "SharpSpring",
 			"type": "LinkedServiceReference"
 		},
 		"parameters": {
-			"Test": {
+			"method": {
 				"type": "String",
-				"defaultValue": "Testval"
+				"defaultValue": "getUserProfiles"
 			}
 		},
 		"type": "HttpFile",
@@ -65,7 +65,7 @@
 			},
 			"relativeUrl": "",
 			"requestMethod": "Post",
-			"requestBody": "{\n  \"method\":\"getUserProfiles\",\n  \"params\":{\n    \"where\":\"\"\n  },\n\n  \"id\": \"123\"\n}\n"
+			"requestBody": "{\n  \"method\": \"@dataset().method \",\n  \"params\":{\n    \"where\":\"\"\n  },\n\n  \"id\": \"123\"\n}\n"
 		}
 	},
 	"type": "Microsoft.DataFactory/factories/datasets"
