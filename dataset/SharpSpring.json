@@ -13,49 +13,14 @@
 			}
 		},
 		"type": "HttpFile",
-		"structure": [
-			{
-				"name": "id",
-				"type": "String"
-			},
-			{
-				"name": "firstName",
-				"type": "String"
-			},
-			{
-				"name": "lastName",
-				"type": "String"
-			},
-			{
-				"name": "displayName",
-				"type": "String"
-			},
-			{
-				"name": "emailAddress",
-				"type": "String"
-			},
-			{
-				"name": "isActive",
-				"type": "String"
-			},
-			{
-				"name": "isReseller",
-				"type": "String"
-			},
-			{
-				"name": "userTimezone",
-				"type": "String"
-			}
-		],
 		"typeProperties": {
 			"format": {
 				"type": "JsonFormat",
-				"filePattern": "setOfObjects",
-				"jsonNodeReference": "$.['result']"
+				"filePattern": "setOfObjects"
 			},
 			"relativeUrl": "",
 			"requestMethod": "Post",
-			"requestBody": "{\n  \"method\": \"getUserProfiles\",\n  \"params\":{\n    \"where\":\"\"\n  },\n\n  \"id\": \"@{dataset().method }\"\n}\n"
+			"requestBody": "{\n  \"method\": \"@{dataset().method}\",\n  \"params\":{\n    \"where\":\"\"\n  },\n\n  \"id\": \"@{dataset().method}\"\n}\n"
 		}
 	},
 	"type": "Microsoft.DataFactory/factories/datasets"
