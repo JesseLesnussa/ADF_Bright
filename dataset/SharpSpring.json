@@ -20,12 +20,16 @@
 		"typeProperties": {
 			"format": {
 				"type": "JsonFormat",
-				"filePattern": "setOfObjects",
+				"filePattern": "arrayOfObjects",
 				"jsonNodeReference": "$.['result']['@{dataset().entiteit}']"
 			},
 			"relativeUrl": "",
 			"requestMethod": "Post",
-			"requestBody": "{\n  \"method\": \"@{dataset().method}\",\n  \"params\":{\n    \"where\":\"\"\n  },\n\n  \"id\": \"@{dataset().method}\"\n}\n"
+			"additionalHeaders": "",
+			"requestBody": {
+				"value": "{\n  \"method\": \"@{dataset().method}\",\n  \"params\":{\n    \"where\":\"\"\n  },\n\n  \"id\": \"@{dataset().method}\"\n}\n",
+				"type": "Expression"
+			}
 		}
 	},
 	"type": "Microsoft.DataFactory/factories/datasets"
