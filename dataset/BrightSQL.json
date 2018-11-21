@@ -2,8 +2,14 @@
 	"name": "BrightSQL",
 	"properties": {
 		"linkedServiceName": {
-			"referenceName": "SA_Users",
+			"referenceName": "Bright_sa",
 			"type": "LinkedServiceReference"
+		},
+		"parameters": {
+			"Table": {
+				"type": "String",
+				"defaultValue": "SharpSpring_UserProfile"
+			}
 		},
 		"type": "AzureSqlTable",
 		"structure": [
@@ -41,7 +47,7 @@
 			}
 		],
 		"typeProperties": {
-			"tableName": "[dbo].[SpringSharp_Users]"
+			"tableName": "[dbo].[@{dataset().Table}]"
 		}
 	},
 	"type": "Microsoft.DataFactory/factories/datasets"
