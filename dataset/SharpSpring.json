@@ -20,7 +20,8 @@
 		"typeProperties": {
 			"format": {
 				"type": "JsonFormat",
-				"filePattern": "setOfObjects"
+				"filePattern": "setOfObjects",
+				"jsonNodeReference": "$.['result']['@{dataset().entiteit}']"
 			},
 			"relativeUrl": "",
 			"requestMethod": "Post",

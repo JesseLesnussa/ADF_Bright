@@ -39,7 +39,8 @@
 									"referenceName": "SharpSpring",
 									"type": "DatasetReference",
 									"parameters": {
-										"method": "@item().method"
+										"method": "@item().method",
+										"entiteit": "@item().entiteit"
 									}
 								}
 							],
