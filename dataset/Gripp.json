@@ -17,11 +17,32 @@
 			"format": {
 				"type": "JsonFormat",
 				"filePattern": "arrayOfObjects",
-				"jsonNodeReference": "$.['result']['rows']"
+				"jsonNodeReference": "$.['result']['rows']",
+				"jsonPathDefinition": {
+					"number": "['number']",
+					"date": "['enddate']['date']",
+					"timezone_type": "['enddate']['timezone_type']",
+					"timezone": "['enddate']['timezone']",
+					"clientreference": "['clientreference']",
+					"isbasis": "['isbasis']",
+					"archived": "['archived']",
+					"workdeliveraddress": "['workdeliveraddress']",
+					"id": "['identity']['id']",
+					"searchname": "['identity']['searchname']",
+					"name": "['name']",
+					"addhoursspecification": "['addhoursspecification']",
+					"description": "['description']",
+					"tags": "['tags']",
+					"employees": "['employees']",
+					"employees_starred": "['employees_starred']",
+					"files": "['files']",
+					"projectlines": "['projectlines']",
+					"viewonlineurl": "['viewonlineurl']"
+				}
 			},
 			"relativeUrl": "",
 			"requestMethod": "Post",
-			"requestBody": " [\n \t{\n        \"apitoken\":\"2cimHMloKB6ycXCaGx25B2wR5oP7TZ\",\n        \"method\":\"project.get\",\n        \"params\":[\n            [\n                {\n                    \"field\":\"project.id\",\n                    \"operator\":\"greaterequals\",\n                    \"value\":1\n                }\n            ],\n            {\n                \"paging\":{\n                    \"firstresult\":250,\n                    \"maxresults\":50\n                },\n                \"orderings\":[\n                    {\n                        \"field\":\"project.id\",\n                        \"direction\":\"asc\"\n                    }\n                ]\n            }\n        ],\n        \"id\":\"@{dataset().flowId}\"\n    }\n  ]\n    "
+			"requestBody": " [\n \t{\n        \"apitoken\":\"2cimHMloKB6ycXCaGx25B2wR5oP7TZ\",\n        \"method\":\"project.get\",\n        \"params\":[\n            [\n                {\n                    \"field\":\"project.id\",\n                    \"operator\":\"greaterequals\",\n                    \"value\":1\n                }\n            ],\n            {\n                \"paging\":{\n                    \"firstresult\":0,\n                    \"maxresults\":250\n                },\n                \"orderings\":[\n                    {\n                        \"field\":\"project.id\",\n                        \"direction\":\"asc\"\n                    }\n                ]\n            }\n        ],\n        \"id\":\"qwe\"\n    }\n  ]\n    "
 		}
 	}
 }
