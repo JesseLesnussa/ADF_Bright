@@ -15,6 +15,26 @@
 		"type": "HttpFile",
 		"structure": [
 			{
+				"name": "result.count",
+				"type": "Int64"
+			},
+			{
+				"name": "result.start",
+				"type": "Int64"
+			},
+			{
+				"name": "result.limit",
+				"type": "Int64"
+			},
+			{
+				"name": "result.next_start",
+				"type": "Int64"
+			},
+			{
+				"name": "result.more_items_in_collection",
+				"type": "Boolean"
+			},
+			{
 				"name": "number",
 				"type": "Int64"
 			},
@@ -97,6 +117,11 @@
 				"filePattern": "arrayOfObjects",
 				"jsonNodeReference": "$.['result']['rows']",
 				"jsonPathDefinition": {
+					"result.count": "$.['result']['count']",
+					"result.start": "$.['result']['start']",
+					"result.limit": "$.['result']['limit']",
+					"result.next_start": "$.['result']['next_start']",
+					"result.more_items_in_collection": "$.['result']['more_items_in_collection']",
 					"number": "['number']",
 					"date": "['startdate']['date']",
 					"timezone_type": "['startdate']['timezone_type']",
