@@ -166,7 +166,7 @@
 							"typeProperties": {
 								"variableName": "count",
 								"value": {
-									"value": "@string(add(int(variables('count')), 250))",
+									"value": "@string(add(float(variables('result')), float(250)))",
 									"type": "Expression"
 								}
 							}
