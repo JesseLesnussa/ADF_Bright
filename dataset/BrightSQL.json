@@ -91,7 +91,10 @@
 			}
 		],
 		"typeProperties": {
-			"tableName": "[dbo].[Gripp_Project_structured]"
+			"tableName": {
+				"value": "@dataset().Table",
+				"type": "Expression"
+			}
 		}
 	},
 	"type": "Microsoft.DataFactory/factories/datasets"
