@@ -127,7 +127,7 @@
 				"type": "Until",
 				"typeProperties": {
 					"expression": {
-						"value": "@greater(int(variables('currentRow')),2200)",
+						"value": "@greater(int(variables('currentRow')),2300)",
 						"type": "Expression"
 					},
 					"activities": [
@@ -243,6 +243,17 @@
 							]
 						}
 					],
+					"timeout": "7.00:00:00"
+				}
+			},
+			{
+				"name": "get all employees",
+				"type": "Until",
+				"typeProperties": {
+					"expression": {
+						"value": "@greater(int(variables('currentRow')),2300)",
+						"type": "Expression"
+					},
 					"timeout": "7.00:00:00"
 				}
 			}
