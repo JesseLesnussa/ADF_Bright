@@ -22,11 +22,6 @@
 								"secureOutput": false,
 								"secureInput": false
 							},
-							"userProperties": [
-								{
-									"name": ""
-								}
-							],
 							"typeProperties": {
 								"source": {
 									"type": "HttpSource",
