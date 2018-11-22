@@ -13,61 +13,6 @@
 					"isSequential": true,
 					"activities": [
 						{
-							"name": "GetDataFromAPI",
-							"type": "Copy",
-							"dependsOn": [
-								{
-									"activity": "SharpSpring",
-									"dependencyConditions": [
-										"Succeeded"
-									]
-								}
-							],
-							"policy": {
-								"timeout": "7.00:00:00",
-								"retry": 0,
-								"retryIntervalInSeconds": 30,
-								"secureOutput": false,
-								"secureInput": false
-							},
-							"typeProperties": {
-								"source": {
-									"type": "HttpSource",
-									"httpRequestTimeout": "00:01:40"
-								},
-								"sink": {
-									"type": "SqlSink",
-									"writeBatchSize": 10000
-								},
-								"enableStaging": false,
-								"enableSkipIncompatibleRow": false,
-								"dataIntegrationUnits": 0
-							},
-							"inputs": [
-								{
-									"referenceName": "SharpSpring",
-									"type": "DatasetReference",
-									"parameters": {
-										"method": "@item().method",
-										"entiteit": "@item().entiteit",
-										"flowId": {
-											"value": "@pipeline().TriggerId",
-											"type": "Expression"
-										}
-									}
-								}
-							],
-							"outputs": [
-								{
-									"referenceName": "BrightSQL",
-									"type": "DatasetReference",
-									"parameters": {
-										"Table": "@item().table"
-									}
-								}
-							]
-						},
-						{
 							"name": "SharpSpring",
 							"type": "IfCondition",
 							"typeProperties": {
@@ -125,59 +70,6 @@
 									}
 								]
 							}
-						},
-						{
-							"name": "GetGrippData",
-							"type": "Copy",
-							"dependsOn": [
-								{
-									"activity": "Gripp",
-									"dependencyConditions": [
-										"Succeeded"
-									]
-								}
-							],
-							"policy": {
-								"timeout": "7.00:00:00",
-								"retry": 0,
-								"retryIntervalInSeconds": 30,
-								"secureOutput": false,
-								"secureInput": false
-							},
-							"typeProperties": {
-								"source": {
-									"type": "HttpSource",
-									"httpRequestTimeout": "00:01:40"
-								},
-								"sink": {
-									"type": "SqlSink",
-									"writeBatchSize": 10000
-								},
-								"enableStaging": false,
-								"enableSkipIncompatibleRow": false,
-								"dataIntegrationUnits": 0
-							},
-							"inputs": [
-								{
-									"referenceName": "Gripp",
-									"type": "DatasetReference",
-									"parameters": {
-										"flowId": {
-											"value": "@pipeline().TriggerId",
-											"type": "Expression"
-										}
-									}
-								}
-							],
-							"outputs": [
-								{
-									"referenceName": "BrightSQL",
-									"type": "DatasetReference",
-									"parameters": {
-										"Table": "@item().table"
-									}
-								}
-							]
 						},
 						{
 							"name": "Gripp",
