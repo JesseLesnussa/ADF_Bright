@@ -149,6 +149,11 @@
 				"type": "Array",
 				"defaultValue": [
 					{
+						"bron": "Gripp",
+						"method": "project.get",
+						"table": "Gripp_Project"
+					},
+					{
 						"bron": "SharpSpring",
 						"method": "getUserProfiles",
 						"entiteit": "userProfile",
