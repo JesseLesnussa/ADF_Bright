@@ -74,6 +74,14 @@
 						{
 							"name": "Gripp",
 							"type": "IfCondition",
+							"dependsOn": [
+								{
+									"activity": "Set Variable1",
+									"dependencyConditions": [
+										"Succeeded"
+									]
+								}
+							],
 							"typeProperties": {
 								"expression": {
 									"value": "@equals(item().bron ,'Gripp')",
@@ -148,27 +156,19 @@
 												}
 											}
 										]
-									},
-									{
-										"name": "Set Variable1",
-										"type": "SetVariable",
-										"dependsOn": [
-											{
-												"activity": "HTTP request Gripp",
-												"dependencyConditions": [
-													"Succeeded"
-												]
-											}
-										],
-										"typeProperties": {
-											"variableName": "count",
-											"value": {
-												"value": "@activity('HTTP request Gripp').output[result.count]\n",
-												"type": "Expression"
-											}
-										}
 									}
 								]
+							}
+						},
+						{
+							"name": "Set Variable1",
+							"type": "SetVariable",
+							"typeProperties": {
+								"variableName": "count",
+								"value": {
+									"value": "@add(int(variables('count')), 250)",
+									"type": "Expression"
+								}
 							}
 						}
 					]
