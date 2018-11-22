@@ -101,7 +101,31 @@
 											},
 											"enableStaging": false,
 											"enableSkipIncompatibleRow": false,
-											"dataIntegrationUnits": 0
+											"dataIntegrationUnits": 0,
+											"translator": {
+												"type": "TabularTranslator",
+												"columnMappings": {
+													"number": "number",
+													"date": "date",
+													"timezone_type": "timezone_type",
+													"timezone": "timezone",
+													"clientreference": "clientreference",
+													"isbasis": "isbasis",
+													"archived": "archived",
+													"workdeliveraddress": "workdeliveraddress",
+													"identity_id": "identity_id",
+													"identity_searchname": "identity_searchname",
+													"name": "name",
+													"addhoursspecification": "addhoursspecification",
+													"description": "description",
+													"tags": "tags",
+													"employees": "employees",
+													"employees_starred": "employees_starred",
+													"files": "files",
+													"projectlines": "projectlines",
+													"viewonlineurl": "viewonlineurl"
+												}
+											}
 										},
 										"inputs": [
 											{

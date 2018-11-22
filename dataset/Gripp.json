@@ -94,29 +94,7 @@
 		"typeProperties": {
 			"format": {
 				"type": "JsonFormat",
-				"filePattern": "arrayOfObjects",
-				"jsonNodeReference": "$.['result']['rows']",
-				"jsonPathDefinition": {
-					"number": "['number']",
-					"date": "['enddate']['date']",
-					"timezone_type": "['enddate']['timezone_type']",
-					"timezone": "['enddate']['timezone']",
-					"clientreference": "['clientreference']",
-					"isbasis": "['isbasis']",
-					"archived": "['archived']",
-					"workdeliveraddress": "['workdeliveraddress']",
-					"identity_id": "['identity']['id']",
-					"identity_searchname": "['identity']['searchname']",
-					"name": "['name']",
-					"addhoursspecification": "['addhoursspecification']",
-					"description": "['description']",
-					"tags": "['tags']",
-					"employees": "['employees']",
-					"employees_starred": "['employees_starred']",
-					"files": "['files']",
-					"projectlines": "['projectlines']",
-					"viewonlineurl": "['viewonlineurl']"
-				}
+				"filePattern": "arrayOfObjects"
 			},
 			"relativeUrl": "",
 			"requestMethod": "Post",
