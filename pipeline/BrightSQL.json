@@ -140,18 +140,6 @@
 						"bron": "Gripp",
 						"method": "project.get",
 						"table": "Gripp_Project"
-					},
-					{
-						"bron": "SharpSpring",
-						"method": "getUserProfiles",
-						"entiteit": "userProfile",
-						"table": "SharpSpring_UserProfile"
-					},
-					{
-						"bron": "SharpSpring",
-						"method": "getCampaigns",
-						"entiteit": "campaign",
-						"table": "SharpSpring_Campaign"
 					}
 				]
 			}
