@@ -148,6 +148,25 @@
 												}
 											}
 										]
+									},
+									{
+										"name": "Set Variable1",
+										"type": "SetVariable",
+										"dependsOn": [
+											{
+												"activity": "HTTP request Gripp",
+												"dependencyConditions": [
+													"Succeeded"
+												]
+											}
+										],
+										"typeProperties": {
+											"variableName": "count",
+											"value": {
+												"value": "@activity('HTTP request Gripp').output[result.count]\n",
+												"type": "Expression"
+											}
+										}
 									}
 								]
 							}
@@ -166,6 +185,14 @@
 						"table": "Gripp_Project_structured"
 					}
 				]
+			},
+			"count": {
+				"type": "String",
+				"defaultValue": "1"
+			},
+			"result": {
+				"type": "String",
+				"defaultValue": "2"
 			}
 		}
 	},
