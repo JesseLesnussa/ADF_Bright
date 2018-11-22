@@ -166,7 +166,7 @@
 							"typeProperties": {
 								"variableName": "count",
 								"value": {
-									"value": "@add(int(variables('count')), 250)",
+									"value": "@string(add(int(variables('count')), 250))",
 									"type": "Expression"
 								}
 							}
@@ -191,7 +191,7 @@
 				"defaultValue": "1"
 			},
 			"result": {
-				"type": "String",
+				"type": "Bool",
 				"defaultValue": "2"
 			}
 		}
