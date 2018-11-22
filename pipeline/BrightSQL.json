@@ -110,11 +110,9 @@
 							},
 							"inputs": [
 								{
-									"referenceName": "SharpSpring",
+									"referenceName": "Gripp",
 									"type": "DatasetReference",
 									"parameters": {
-										"method": "@item().method",
-										"entiteit": "@item().entiteit",
 										"flowId": {
 											"value": "@pipeline().TriggerId",
 											"type": "Expression"
