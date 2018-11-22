@@ -207,7 +207,7 @@
 							"type": "SetVariable",
 							"dependsOn": [
 								{
-									"activity": "Copy Data1",
+									"activity": "getProjects",
 									"dependencyConditions": [
 										"Succeeded"
 									]
@@ -241,7 +241,7 @@
 							}
 						},
 						{
-							"name": "Copy Data1",
+							"name": "getProjects",
 							"type": "Copy",
 							"policy": {
 								"timeout": "7.00:00:00",
@@ -294,6 +294,10 @@
 									"parameters": {
 										"flowId": {
 											"value": "@pipeline().TriggerId",
+											"type": "Expression"
+										},
+										"currentRow": {
+											"value": "@int(variables('currentRow'))",
 											"type": "Expression"
 										}
 									}
