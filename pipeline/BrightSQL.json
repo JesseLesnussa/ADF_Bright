@@ -263,35 +263,12 @@
 					},
 					"sink": {
 						"type": "SqlSink",
-						"writeBatchSize": 10000
+						"writeBatchSize": 10000,
+						"preCopyScript": ""
 					},
 					"enableStaging": false,
 					"enableSkipIncompatibleRow": false,
-					"dataIntegrationUnits": 0,
-					"translator": {
-						"type": "TabularTranslator",
-						"columnMappings": {
-							"number": "number",
-							"date": "date",
-							"timezone_type": "timezone_type",
-							"timezone": "timezone",
-							"clientreference": "clientreference",
-							"isbasis": "isbasis",
-							"archived": "archived",
-							"workdeliveraddress": "workdeliveraddress",
-							"id": "id",
-							"searchname": "searchname",
-							"name": "name",
-							"addhoursspecification": "addhoursspecification",
-							"description": "description",
-							"tags": "tags",
-							"employees": "employees",
-							"employees_starred": "employees_starred",
-							"files": "files",
-							"projectlines": "projectlines",
-							"viewonlineurl": "viewonlineurl"
-						}
-					}
+					"dataIntegrationUnits": 0
 				},
 				"inputs": [
 					{
@@ -313,7 +290,7 @@
 						"referenceName": "BrightSQL",
 						"type": "DatasetReference",
 						"parameters": {
-							"Table": "Gripp_Project_structured"
+							"Table": "Gripp_Employee_structured"
 						}
 					}
 				]
