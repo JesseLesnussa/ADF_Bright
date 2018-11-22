@@ -21,7 +21,7 @@
 			"format": {
 				"type": "JsonFormat",
 				"filePattern": "setOfObjects",
-				"jsonNodeReference": "$.['result'][0]"
+				"jsonNodeReference": "$.['result'][1]"
 			},
 			"relativeUrl": "",
 			"requestMethod": "Post",
