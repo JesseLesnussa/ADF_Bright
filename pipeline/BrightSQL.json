@@ -139,7 +139,7 @@
 					{
 						"bron": "Gripp",
 						"method": "project.get",
-						"table": "Gripp_Project"
+						"table": "Gripp_Project_structured"
 					}
 				]
 			}
