@@ -77,7 +77,7 @@
 								},
 								"ifTrueActivities": [
 									{
-										"name": "Copy Data1",
+										"name": "HTTP request SharpSpring",
 										"type": "Copy",
 										"policy": {
 											"timeout": "7.00:00:00",
@@ -189,7 +189,7 @@
 								},
 								"ifTrueActivities": [
 									{
-										"name": "Copy Data1",
+										"name": "HTTP request Gripp",
 										"type": "Copy",
 										"policy": {
 											"timeout": "7.00:00:00",
