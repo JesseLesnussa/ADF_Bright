@@ -21,7 +21,7 @@
 			},
 			"relativeUrl": "",
 			"requestMethod": "Post",
-			"requestBody": " [\n \t{\n        \"apitoken\":\"2cimHMloKB6ycXCaGx25B2wR5oP7TZ\",\n        \"method\":\"project.get\",\n        \"params\":[\n            [\n                {\n                    \"field\":\"project.id\",\n                    \"operator\":\"greaterequals\",\n                    \"value\":1\n                }\n            ],\n            {\n                \"paging\":{\n                    \"firstresult\":250,\n                    \"maxresults\":250\n                },\n                \"orderings\":[\n                    {\n                        \"field\":\"project.id\",\n                        \"direction\":\"asc\"\n                    }\n                ]\n            }\n        ],\n        \"id\":\"@{dataset().flowId}\"\n    }\n  ]\n    "
+			"requestBody": " [\n \t{\n        \"apitoken\":\"2cimHMloKB6ycXCaGx25B2wR5oP7TZ\",\n        \"method\":\"project.get\",\n        \"params\":[\n            [\n                {\n                    \"field\":\"project.id\",\n                    \"operator\":\"greaterequals\",\n                    \"value\":1\n                }\n            ],\n            {\n                \"paging\":{\n                    \"firstresult\":250,\n                    \"maxresults\":100\n                },\n                \"orderings\":[\n                    {\n                        \"field\":\"project.id\",\n                        \"direction\":\"asc\"\n                    }\n                ]\n            }\n        ],\n        \"id\":\"@{dataset().flowId}\"\n    }\n  ]\n    "
 		}
 	}
 }
