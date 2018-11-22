@@ -22,6 +22,11 @@
 								"secureOutput": false,
 								"secureInput": false
 							},
+							"userProperties": [
+								{
+									"name": ""
+								}
+							],
 							"typeProperties": {
 								"source": {
 									"type": "HttpSource",
@@ -41,14 +46,21 @@
 									"type": "DatasetReference",
 									"parameters": {
 										"method": "@item().method",
-										"entiteit": "@item().entiteit"
+										"entiteit": "@item().entiteit",
+										"flowId": {
+											"value": "@pipeline().TriggerId",
+											"type": "Expression"
+										}
 									}
 								}
 							],
 							"outputs": [
 								{
 									"referenceName": "BrightSQL",
-									"type": "DatasetReference"
+									"type": "DatasetReference",
+									"parameters": {
+										"Table": "SharpSpring_UserProfile"
+									}
 								}
 							]
 						}
