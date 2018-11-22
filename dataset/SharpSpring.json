@@ -14,6 +14,10 @@
 			"entiteit": {
 				"type": "String",
 				"defaultValue": "userProfile"
+			},
+			"flowId": {
+				"type": "String",
+				"defaultValue": "123"
 			}
 		},
 		"type": "HttpFile",
@@ -21,13 +25,13 @@
 			"format": {
 				"type": "JsonFormat",
 				"filePattern": "setOfObjects",
-				"jsonNodeReference": "$.['result']['@{dataset().entiteit}']"
+				"jsonNodeReference": "$.['result']"
 			},
 			"relativeUrl": "",
 			"requestMethod": "Post",
 			"additionalHeaders": "",
 			"requestBody": {
-				"value": "{\n  \"method\": \"@{dataset().method}\",\n  \"params\":{\n    \"where\":\"\"\n  },\n\n  \"id\": \"@{dataset().method}\"\n}\n",
+				"value": "{\n  \"method\": \"@{dataset().method}\",\n  \"params\":{\n    \"where\":\"\"\n  },\n\n  \"id\": \"@{dataset().flowId}\"\n}\n",
 				"type": "Expression"
 			}
 		}
