@@ -54,7 +54,7 @@
 									"referenceName": "BrightSQL",
 									"type": "DatasetReference",
 									"parameters": {
-										"Table": "SharpSpring_UserProfile"
+										"Table": "@item().table"
 									}
 								}
 							]
@@ -68,12 +68,16 @@
 				"type": "Array",
 				"defaultValue": [
 					{
+						"bron": "SharpSpring",
 						"method": "getUserProfiles",
-						"entiteit": "userProfile"
+						"entiteit": "userProfile",
+						"table": "SharpSpring_UserProfile"
 					},
 					{
+						"bron": "SharpSpring",
 						"method": "getCampaigns",
-						"entiteit": "campaign"
+						"entiteit": "campaign",
+						"table": "SharpSpring_Campaign"
 					}
 				]
 			}
