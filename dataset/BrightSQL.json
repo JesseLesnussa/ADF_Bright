@@ -12,8 +12,86 @@
 			}
 		},
 		"type": "AzureSqlTable",
+		"structure": [
+			{
+				"name": "number",
+				"type": "Int32"
+			},
+			{
+				"name": "date",
+				"type": "String"
+			},
+			{
+				"name": "timezone_type",
+				"type": "String"
+			},
+			{
+				"name": "timezone",
+				"type": "String"
+			},
+			{
+				"name": "clientreference",
+				"type": "String"
+			},
+			{
+				"name": "isbasis",
+				"type": "Boolean"
+			},
+			{
+				"name": "archived",
+				"type": "String"
+			},
+			{
+				"name": "workdeliveraddress",
+				"type": "String"
+			},
+			{
+				"name": "identity_id",
+				"type": "String"
+			},
+			{
+				"name": "identity_searchname",
+				"type": "String"
+			},
+			{
+				"name": "name",
+				"type": "String"
+			},
+			{
+				"name": "addhoursspecification",
+				"type": "String"
+			},
+			{
+				"name": "description",
+				"type": "String"
+			},
+			{
+				"name": "tags",
+				"type": "String"
+			},
+			{
+				"name": "employees",
+				"type": "String"
+			},
+			{
+				"name": "employees_starred",
+				"type": "String"
+			},
+			{
+				"name": "files",
+				"type": "String"
+			},
+			{
+				"name": "projectlines",
+				"type": "String"
+			},
+			{
+				"name": "viewonlineurl",
+				"type": "String"
+			}
+		],
 		"typeProperties": {
-			"tableName": "[dbo].[@{dataset().Table}]"
+			"tableName": "[dbo].[Gripp_Project_structured]"
 		}
 	},
 	"type": "Microsoft.DataFactory/factories/datasets"
