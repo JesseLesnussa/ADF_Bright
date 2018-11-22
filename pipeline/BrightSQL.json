@@ -74,14 +74,6 @@
 						{
 							"name": "Gripp",
 							"type": "IfCondition",
-							"dependsOn": [
-								{
-									"activity": "Set Variable1",
-									"dependencyConditions": [
-										"Succeeded"
-									]
-								}
-							],
 							"typeProperties": {
 								"expression": {
 									"value": "@equals(item().bron ,'Gripp')",
@@ -163,15 +155,162 @@
 						{
 							"name": "Set Variable1",
 							"type": "SetVariable",
+							"dependsOn": [
+								{
+									"activity": "SharpSpring",
+									"dependencyConditions": [
+										"Succeeded"
+									]
+								}
+							],
 							"typeProperties": {
-								"variableName": "count",
+								"variableName": "tempCurrentRow",
 								"value": {
-									"value": "@string(add(float(variables('result')), float(250)))",
+									"value": "@string(add(float(variables('currentRow')), float(250)))",
+									"type": "Expression"
+								}
+							}
+						},
+						{
+							"name": "Set Variable2",
+							"type": "SetVariable",
+							"dependsOn": [
+								{
+									"activity": "Set Variable1",
+									"dependencyConditions": [
+										"Succeeded"
+									]
+								}
+							],
+							"typeProperties": {
+								"variableName": "currentRow",
+								"value": {
+									"value": "@variables('tempCurrentRow')",
 									"type": "Expression"
 								}
 							}
 						}
 					]
+				}
+			},
+			{
+				"name": "Until1",
+				"type": "Until",
+				"typeProperties": {
+					"expression": {
+						"value": "@greater(int(variables('currentRow')),2200)",
+						"type": "Expression"
+					},
+					"activities": [
+						{
+							"name": "set TempCurrentRow",
+							"type": "SetVariable",
+							"dependsOn": [
+								{
+									"activity": "Copy Data1",
+									"dependencyConditions": [
+										"Succeeded"
+									]
+								}
+							],
+							"typeProperties": {
+								"variableName": "tempCurrentRow",
+								"value": {
+									"value": "@string(add(float(variables('currentRow')), float(250)))",
+									"type": "Expression"
+								}
+							}
+						},
+						{
+							"name": "Set CurrentRow",
+							"type": "SetVariable",
+							"dependsOn": [
+								{
+									"activity": "set TempCurrentRow",
+									"dependencyConditions": [
+										"Succeeded"
+									]
+								}
+							],
+							"typeProperties": {
+								"variableName": "currentRow",
+								"value": {
+									"value": "@variables('tempCurrentRow')",
+									"type": "Expression"
+								}
+							}
+						},
+						{
+							"name": "Copy Data1",
+							"type": "Copy",
+							"policy": {
+								"timeout": "7.00:00:00",
+								"retry": 0,
+								"retryIntervalInSeconds": 30,
+								"secureOutput": false,
+								"secureInput": false
+							},
+							"typeProperties": {
+								"source": {
+									"type": "HttpSource",
+									"httpRequestTimeout": "00:01:40"
+								},
+								"sink": {
+									"type": "SqlSink",
+									"writeBatchSize": 10000
+								},
+								"enableStaging": false,
+								"enableSkipIncompatibleRow": false,
+								"dataIntegrationUnits": 0,
+								"translator": {
+									"type": "TabularTranslator",
+									"columnMappings": {
+										"number": "number",
+										"date": "date",
+										"timezone_type": "timezone_type",
+										"timezone": "timezone",
+										"clientreference": "clientreference",
+										"isbasis": "isbasis",
+										"archived": "archived",
+										"workdeliveraddress": "workdeliveraddress",
+										"id": "id",
+										"searchname": "searchname",
+										"name": "name",
+										"addhoursspecification": "addhoursspecification",
+										"description": "description",
+										"tags": "tags",
+										"employees": "employees",
+										"employees_starred": "employees_starred",
+										"files": "files",
+										"projectlines": "projectlines",
+										"viewonlineurl": "viewonlineurl"
+									}
+								}
+							},
+							"inputs": [
+								{
+									"referenceName": "Gripp",
+									"type": "DatasetReference",
+									"parameters": {
+										"flowId": {
+											"value": "@pipeline().TriggerId",
+											"type": "Expression"
+										}
+									}
+								}
+							],
+							"outputs": [
+								{
+									"referenceName": "BrightSQL",
+									"type": "DatasetReference",
+									"parameters": {
+										"Table": "Gripp_Project_structured"
+									}
+								}
+							]
+						}
+					],
+					"timeout": "7.00:00:00"
 				}
 			}
 		],
@@ -186,13 +325,13 @@
 					}
 				]
 			},
-			"count": {
+			"currentRow": {
 				"type": "String",
-				"defaultValue": "1"
+				"defaultValue": "0"
 			},
-			"result": {
+			"tempCurrentRow": {
 				"type": "String",
-				"defaultValue": "2"
+				"defaultValue": "0"
 			}
 		}
 	},
