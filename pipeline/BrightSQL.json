@@ -120,7 +120,7 @@
 												"referenceName": "BrightSQL",
 												"type": "DatasetReference",
 												"parameters": {
-													"Table": "@item().table"
+													"Table": "Gripp_Project"
 												}
 											}
 										]
