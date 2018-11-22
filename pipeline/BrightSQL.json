@@ -191,7 +191,7 @@
 				"defaultValue": "1"
 			},
 			"result": {
-				"type": "Bool",
+				"type": "String",
 				"defaultValue": "2"
 			}
 		}
