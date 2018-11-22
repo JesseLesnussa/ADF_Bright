@@ -21,7 +21,7 @@
 			"format": {
 				"type": "JsonFormat",
 				"filePattern": "setOfObjects",
-				"jsonNodeReference": "$.['result'][1]"
+				"jsonNodeReference": "$.['result']['@{dataset().entiteit}']"
 			},
 			"relativeUrl": "",
 			"requestMethod": "Post",
