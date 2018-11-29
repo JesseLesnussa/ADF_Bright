@@ -76,6 +76,30 @@
 				"type": "String"
 			},
 			{
+				"name": "deadline.date",
+				"type": "String"
+			},
+			{
+				"name": "deadline.timezone_type",
+				"type": "Int64"
+			},
+			{
+				"name": "deadline.timezone",
+				"type": "String"
+			},
+			{
+				"name": "startdate.date",
+				"type": "String"
+			},
+			{
+				"name": "startdate.timezone_type",
+				"type": "Int64"
+			},
+			{
+				"name": "startdate.timezone",
+				"type": "String"
+			},
+			{
 				"name": "addhoursspecification",
 				"type": "Boolean"
 			},
@@ -89,6 +113,14 @@
 			},
 			{
 				"name": "templateset.searchname",
+				"type": "String"
+			},
+			{
+				"name": "accountmanager.id",
+				"type": "Int64"
+			},
+			{
+				"name": "accountmanager.searchname",
 				"type": "String"
 			},
 			{

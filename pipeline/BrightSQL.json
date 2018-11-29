@@ -206,45 +206,7 @@
 								},
 								"enableStaging": false,
 								"enableSkipIncompatibleRow": false,
-								"dataIntegrationUnits": 0,
-								"translator": {
-									"type": "TabularTranslator",
-									"columnMappings": {
-										"number": "number",
-										"date": "date",
-										"timezone_type": "timezone_type",
-										"timezone": "timezone",
-										"clientreference": "clientreference",
-										"isbasis": "isbasis",
-										"archived": "archived",
-										"workdeliveraddress": "workdeliveraddress",
-										"id": "id",
-										"createdon.date": "createdon.date",
-										"createdon.timezone_type": "createdon.timezone_type",
-										"createdon.timezone": "createdon.timezone",
-										"updatedon.date": "updatedon.date",
-										"updatedon.timezone_type": "updatedon.date.timezone_type",
-										"updatedon.timezone": "updatedon.date.timezone",
-										"searchname": "searchname",
-										"name": "name",
-										"addhoursspecification": "addhoursspecification",
-										"description": "description",
-										"templateset.id": "templateset.id",
-										"templateset.searchname": "templateset.searchname",
-										"phase.id": "phase.id",
-										"deadline.date": "phase.searchname",
-										"company.id": "company.id",
-										"company.searchname": "company.searchname",
-										"identity.id": "identity.id",
-										"identity.searchname": "identity.searchname",
-										"tags": "tags",
-										"employees": "employees",
-										"employees_starred": "employees_starred",
-										"files": "files",
-										"projectlines": "projectlines",
-										"viewonlineurl": "viewonlineurl"
-									}
-								}
+								"dataIntegrationUnits": 0
 							},
 							"inputs": [
 								{
