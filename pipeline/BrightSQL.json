@@ -237,14 +237,10 @@
 									"referenceName": "Gripp",
 									"type": "DatasetReference",
 									"parameters": {
-										"flowId": {
-											"value": "@pipeline().TriggerId",
-											"type": "Expression"
-										},
-										"currentRow": {
-											"value": "@int(variables('currentRow'))",
-											"type": "Expression"
-										}
+										"flowId": "123",
+										"currentRow": 0,
+										"field": "project.id",
+										"method": "project.get"
 									}
 								}
 							],
