@@ -5,14 +5,6 @@
 			{
 				"name": "ForEach1",
 				"type": "ForEach",
-				"dependsOn": [
-					{
-						"activity": "get all projects",
-						"dependencyConditions": [
-							"Succeeded"
-						]
-					}
-				],
 				"typeProperties": {
 					"items": {
 						"value": "@variables('APIs')",
@@ -133,14 +125,6 @@
 			{
 				"name": "get all projects",
 				"type": "Until",
-				"dependsOn": [
-					{
-						"activity": "Gripp employee",
-						"dependencyConditions": [
-							"Succeeded"
-						]
-					}
-				],
 				"typeProperties": {
 					"expression": {
 						"value": "@greater(int(variables('currentRow')),2500)",
@@ -375,7 +359,7 @@
 			},
 			"currentRow": {
 				"type": "String",
-				"defaultValue": "0"
+				"defaultValue": "500"
 			},
 			"tempCurrentRow": {
 				"type": "String",
