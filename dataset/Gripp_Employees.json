@@ -1,0 +1,184 @@
+{
+	"name": "Gripp_Employees",
+	"properties": {
+		"description": "Alle employees objecten Gripp",
+		"linkedServiceName": {
+			"referenceName": "GrippServer",
+			"type": "LinkedServiceReference"
+		},
+		"type": "HttpFile",
+		"structure": [
+			{
+				"name": "username",
+				"type": "String"
+			},
+			{
+				"name": "password",
+				"type": "String"
+			},
+			{
+				"name": "active",
+				"type": "Boolean"
+			},
+			{
+				"name": "email",
+				"type": "String"
+			},
+			{
+				"name": "phone",
+				"type": "String"
+			},
+			{
+				"name": "mobile",
+				"type": "String"
+			},
+			{
+				"name": "street",
+				"type": "String"
+			},
+			{
+				"name": "adresline2",
+				"type": "String"
+			},
+			{
+				"name": "streetnumber",
+				"type": "String"
+			},
+			{
+				"name": "zipcode",
+				"type": "String"
+			},
+			{
+				"name": "city",
+				"type": "String"
+			},
+			{
+				"name": "country",
+				"type": "String"
+			},
+			{
+				"name": "function",
+				"type": "String"
+			},
+			{
+				"name": "initials",
+				"type": "String"
+			},
+			{
+				"name": "firstname",
+				"type": "String"
+			},
+			{
+				"name": "infix",
+				"type": "String"
+			},
+			{
+				"name": "lastname",
+				"type": "String"
+			},
+			{
+				"name": "screenname",
+				"type": "String"
+			},
+			{
+				"name": "id",
+				"type": "Int64"
+			},
+			{
+				"name": "date",
+				"type": "String"
+			},
+			{
+				"name": "timezone_type",
+				"type": "Int64"
+			},
+			{
+				"name": "timezone",
+				"type": "String"
+			},
+			{
+				"name": "searchname",
+				"type": "String"
+			},
+			{
+				"name": "title",
+				"type": "String"
+			},
+			{
+				"name": "number",
+				"type": "Int64"
+			},
+			{
+				"name": "emailprivate",
+				"type": "String"
+			},
+			{
+				"name": "socialsecuritynumber",
+				"type": "String"
+			},
+			{
+				"name": "bankaccount",
+				"type": "String"
+			},
+			{
+				"name": "bankascription",
+				"type": "String"
+			},
+			{
+				"name": "bankcity",
+				"type": "String"
+			},
+			{
+				"name": "notes",
+				"type": "String"
+			},
+			{
+				"name": "tags",
+				"type": "String"
+			}
+		],
+		"typeProperties": {
+			"format": {
+				"type": "JsonFormat",
+				"filePattern": "arrayOfObjects",
+				"jsonNodeReference": "$.['result']['rows']",
+				"jsonPathDefinition": {
+					"username": "['username']",
+					"password": "['password']",
+					"active": "['active']",
+					"email": "['email']",
+					"phone": "['phone']",
+					"mobile": "['mobile']",
+					"street": "['street']",
+					"adresline2": "['adresline2']",
+					"streetnumber": "['streetnumber']",
+					"zipcode": "['zipcode']",
+					"city": "['city']",
+					"country": "['country']",
+					"function": "['function']",
+					"initials": "['initials']",
+					"firstname": "['firstname']",
+					"infix": "['infix']",
+					"lastname": "['lastname']",
+					"screenname": "['screenname']",
+					"id": "['role']['id']",
+					"date": "['employeesince']['date']",
+					"timezone_type": "['employeesince']['timezone_type']",
+					"timezone": "['employeesince']['timezone']",
+					"searchname": "['role']['searchname']",
+					"title": "['title']",
+					"number": "['number']",
+					"emailprivate": "['emailprivate']",
+					"socialsecuritynumber": "['socialsecuritynumber']",
+					"bankaccount": "['bankaccount']",
+					"bankascription": "['bankascription']",
+					"bankcity": "['bankcity']",
+					"notes": "['notes']",
+					"tags": "['tags']"
+				}
+			},
+			"requestMethod": "Post",
+			"requestBody": " [\n \t{\n        \"apitoken\":\"2cimHMloKB6ycXCaGx25B2wR5oP7TZ\",\n        \"method\":\"employee.get\",\n        \"params\":[\n            [\n                {\n                    \"field\":\"employee.id\",\n                    \"operator\":\"greaterequals\",\n                    \"value\":1\n                }\n            ],\n            {\n                \"paging\":{\n                    \"firstresult\":0,\n                    \"maxresults\":50\n                },\n                \"orderings\":[\n                    {\n                        \"field\":\"employee.id\",\n                        \"direction\":\"asc\"\n                    }\n                ]\n            }\n        ],\n        \"id\":1\n    }\n  ]"
+		}
+	}
+}

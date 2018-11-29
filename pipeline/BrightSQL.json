@@ -288,17 +288,8 @@
 				},
 				"inputs": [
 					{
-						"referenceName": "Gripp",
-						"type": "DatasetReference",
-						"parameters": {
-							"flowId": {
-								"value": "@pipeline().TriggerId",
-								"type": "Expression"
-							},
-							"currentRow": 0,
-							"field": "employee.id",
-							"method": "employee.get"
-						}
+						"referenceName": "Gripp_Employees",
+						"type": "DatasetReference"
 					}
 				],
 				"outputs": [
