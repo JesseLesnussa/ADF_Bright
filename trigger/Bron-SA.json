@@ -5,7 +5,7 @@
 		"pipelines": [
 			{
 				"pipelineReference": {
-					"referenceName": "BrightSQL",
+					"referenceName": "API - Staging",
 					"type": "PipelineReference"
 				}
 			}
