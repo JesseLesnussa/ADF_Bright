@@ -284,7 +284,44 @@
 					},
 					"enableStaging": false,
 					"enableSkipIncompatibleRow": false,
-					"dataIntegrationUnits": 0
+					"dataIntegrationUnits": 0,
+					"translator": {
+						"type": "TabularTranslator",
+						"columnMappings": {
+							"username": "username",
+							"password": "password",
+							"active": "active",
+							"email": "email",
+							"phone": "phone",
+							"mobile": "mobile",
+							"street": "street",
+							"adresline2": "adresline2",
+							"streetnumber": "streetnumber",
+							"zipcode": "zipcode",
+							"city": "city",
+							"country": "country",
+							"function": "function",
+							"initials": "initials",
+							"firstname": "firstname",
+							"infix": "infix",
+							"lastname": "lastname",
+							"screenname": "screenname",
+							"id": "id",
+							"date": "updatedon.date",
+							"timezone_type": "updatedon.timezone_type",
+							"timezone": "updatedon.timezone",
+							"searchname": "searchname",
+							"title": "title",
+							"number": "number",
+							"emailprivate": "emailprivate",
+							"socialsecuritynumber": "socialsecuritynumber",
+							"bankaccount": "bankaccount",
+							"bankascription": "bankascription",
+							"bankcity": "bankcity",
+							"notes": "notes",
+							"tags": "tags"
+						}
+					}
 				},
 				"inputs": [
 					{

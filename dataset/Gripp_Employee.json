@@ -84,11 +84,15 @@
 				"type": "String"
 			},
 			{
-				"name": "createdon",
+				"name": "updatedon.date",
 				"type": "String"
 			},
 			{
-				"name": "updatedon",
+				"name": "updatedon.timezone_type",
+				"type": "String"
+			},
+			{
+				"name": "updatedon.timezone",
 				"type": "String"
 			},
 			{
@@ -136,15 +140,31 @@
 				"type": "String"
 			},
 			{
-				"name": "employeesince",
+				"name": "employeesince.date",
 				"type": "String"
 			},
 			{
-				"name": "userphoto",
+				"name": "employeesince.timezone_type",
 				"type": "String"
 			},
 			{
-				"name": "role",
+				"name": "employeesince.timezone",
+				"type": "String"
+			},
+			{
+				"name": "userphoto.id",
+				"type": "String"
+			},
+			{
+				"name": "userphoto.searchname",
+				"type": "String"
+			},
+			{
+				"name": "role.id",
+				"type": "String"
+			},
+			{
+				"name": "role.searchname",
 				"type": "String"
 			},
 			{

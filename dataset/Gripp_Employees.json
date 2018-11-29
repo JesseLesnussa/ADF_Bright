@@ -85,15 +85,15 @@
 				"type": "Int64"
 			},
 			{
-				"name": "date",
+				"name": "updatedon",
 				"type": "String"
 			},
 			{
-				"name": "timezone_type",
+				"name": "updatedon.timezone_type",
 				"type": "Int64"
 			},
 			{
-				"name": "timezone",
+				"name": "updatedon,timezone",
 				"type": "String"
 			},
 			{
@@ -107,6 +107,18 @@
 			{
 				"name": "number",
 				"type": "Int64"
+			},
+			{
+				"name": "dateofbirth",
+				"type": "String"
+			},
+			{
+				"name": "timezone_type",
+				"type": "Int64"
+			},
+			{
+				"name": "timezone",
+				"type": "String"
 			},
 			{
 				"name": "emailprivate",
@@ -130,6 +142,34 @@
 			},
 			{
 				"name": "notes",
+				"type": "String"
+			},
+			{
+				"name": "employeesince.date",
+				"type": "String"
+			},
+			{
+				"name": "employeesince.timezone_type",
+				"type": "Int64"
+			},
+			{
+				"name": "employeesince.timezone",
+				"type": "String"
+			},
+			{
+				"name": "userphoto.id",
+				"type": "Int64"
+			},
+			{
+				"name": "userphoto,searchname",
+				"type": "String"
+			},
+			{
+				"name": "role.id",
+				"type": "Int64"
+			},
+			{
+				"name": "role.searchname",
 				"type": "String"
 			},
 			{
