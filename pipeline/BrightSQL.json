@@ -359,7 +359,7 @@
 			},
 			"currentRow": {
 				"type": "String",
-				"defaultValue": "500"
+				"defaultValue": "0"
 			},
 			"tempCurrentRow": {
 				"type": "String",
