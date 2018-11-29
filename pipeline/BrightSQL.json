@@ -284,31 +284,7 @@
 					},
 					"enableStaging": false,
 					"enableSkipIncompatibleRow": false,
-					"dataIntegrationUnits": 0,
-					"translator": {
-						"type": "TabularTranslator",
-						"columnMappings": {
-							"number": "number",
-							"date": "date",
-							"timezone_type": "timezone_type",
-							"timezone": "timezone",
-							"username": "clientreference",
-							"password": "isbasis",
-							"active": "archived",
-							"email": "workdeliveraddress",
-							"id": "id",
-							"searchname": "searchname",
-							"phone": "name",
-							"mobile": "addhoursspecification",
-							"street": "description",
-							"tags": "tags",
-							"adresline2": "employees",
-							"streetnumber": "employees_starred",
-							"zipcode": "files",
-							"city": "projectlines",
-							"country": "viewonlineurl"
-						}
-					}
+					"dataIntegrationUnits": 0
 				},
 				"inputs": [
 					{
@@ -318,11 +294,8 @@
 				],
 				"outputs": [
 					{
-						"referenceName": "BrightSQL",
-						"type": "DatasetReference",
-						"parameters": {
-							"Table": "Gripp_Employee_structured"
-						}
+						"referenceName": "Gripp_Employee",
+						"type": "DatasetReference"
 					}
 				]
 			}

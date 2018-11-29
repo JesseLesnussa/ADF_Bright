@@ -1,0 +1,163 @@
+{
+	"name": "Gripp_Employee",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "Bright_sa",
+			"type": "LinkedServiceReference"
+		},
+		"type": "AzureSqlTable",
+		"structure": [
+			{
+				"name": "username",
+				"type": "String"
+			},
+			{
+				"name": "password",
+				"type": "String"
+			},
+			{
+				"name": "active",
+				"type": "String"
+			},
+			{
+				"name": "email",
+				"type": "String"
+			},
+			{
+				"name": "phone",
+				"type": "String"
+			},
+			{
+				"name": "mobile",
+				"type": "String"
+			},
+			{
+				"name": "street",
+				"type": "String"
+			},
+			{
+				"name": "adresline2",
+				"type": "String"
+			},
+			{
+				"name": "streetnumber",
+				"type": "String"
+			},
+			{
+				"name": "zipcode",
+				"type": "String"
+			},
+			{
+				"name": "city",
+				"type": "String"
+			},
+			{
+				"name": "country",
+				"type": "String"
+			},
+			{
+				"name": "function",
+				"type": "String"
+			},
+			{
+				"name": "initials",
+				"type": "String"
+			},
+			{
+				"name": "firstname",
+				"type": "String"
+			},
+			{
+				"name": "infix",
+				"type": "String"
+			},
+			{
+				"name": "lastname",
+				"type": "String"
+			},
+			{
+				"name": "screenname",
+				"type": "String"
+			},
+			{
+				"name": "id",
+				"type": "String"
+			},
+			{
+				"name": "createdon",
+				"type": "String"
+			},
+			{
+				"name": "updatedon",
+				"type": "String"
+			},
+			{
+				"name": "searchname",
+				"type": "String"
+			},
+			{
+				"name": "extendedproperties",
+				"type": "String"
+			},
+			{
+				"name": "title",
+				"type": "String"
+			},
+			{
+				"name": "number",
+				"type": "String"
+			},
+			{
+				"name": "dateofbirth",
+				"type": "String"
+			},
+			{
+				"name": "emailprivate",
+				"type": "String"
+			},
+			{
+				"name": "socialsecuritynumber",
+				"type": "String"
+			},
+			{
+				"name": "bankaccount",
+				"type": "String"
+			},
+			{
+				"name": "bankascription",
+				"type": "String"
+			},
+			{
+				"name": "bankcity",
+				"type": "String"
+			},
+			{
+				"name": "notes",
+				"type": "String"
+			},
+			{
+				"name": "employeesince",
+				"type": "String"
+			},
+			{
+				"name": "userphoto",
+				"type": "String"
+			},
+			{
+				"name": "role",
+				"type": "String"
+			},
+			{
+				"name": "salutation",
+				"type": "String"
+			},
+			{
+				"name": "tags",
+				"type": "String"
+			}
+		],
+		"typeProperties": {
+			"tableName": "[dbo].[Gripp_Employee_structured]"
+		}
+	}
+}
