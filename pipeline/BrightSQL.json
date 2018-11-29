@@ -257,7 +257,13 @@
 							"inputs": [
 								{
 									"referenceName": "Gripp_Projects",
-									"type": "DatasetReference"
+									"type": "DatasetReference",
+									"parameters": {
+										"currentRow": {
+											"value": "@variables('currentRow')",
+											"type": "Expression"
+										}
+									}
 								}
 							],
 							"outputs": [
