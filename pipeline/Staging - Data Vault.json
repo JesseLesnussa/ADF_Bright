@@ -31,6 +31,9 @@
 					"secureInput": false
 				},
 				"typeProperties": {
+					"packageLocation": {
+						"packagePath": "brightSQL/Bright ETL/Package.dtsx"
+					},
 					"loggingLevel": "Basic",
 					"connectVia": {
 						"referenceName": "integrationRuntime1",
