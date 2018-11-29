@@ -219,6 +219,11 @@
 										"archived": "archived",
 										"workdeliveraddress": "workdeliveraddress",
 										"id": "id",
+										"result.count": "createdon.date",
+										"result.start": "createdon.timezone_type",
+										"result.limit": "createdon.timezone",
+										"result.next_start": "updatedon.date",
+										"result.more_items_in_collection": "updatedon.date.timezone_type",
 										"searchname": "searchname",
 										"name": "name",
 										"addhoursspecification": "addhoursspecification",
@@ -234,23 +239,14 @@
 							},
 							"inputs": [
 								{
-									"referenceName": "Gripp",
-									"type": "DatasetReference",
-									"parameters": {
-										"flowId": "123",
-										"currentRow": 0,
-										"field": "project.id",
-										"method": "project.get"
-									}
+									"referenceName": "Gripp_Projects",
+									"type": "DatasetReference"
 								}
 							],
 							"outputs": [
 								{
-									"referenceName": "BrightSQL",
-									"type": "DatasetReference",
-									"parameters": {
-										"Table": "Gripp_Project_structured"
-									}
+									"referenceName": "Gripp_Project",
+									"type": "DatasetReference"
 								}
 							]
 						}
