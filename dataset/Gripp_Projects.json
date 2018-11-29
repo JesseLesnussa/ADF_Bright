@@ -1,0 +1,235 @@
+{
+	"name": "Gripp_Projects",
+	"properties": {
+		"description": "Alle project-objecten in Gripp",
+		"linkedServiceName": {
+			"referenceName": "GrippServer",
+			"type": "LinkedServiceReference"
+		},
+		"parameters": {
+			"currentRow": {
+				"type": "String",
+				"defaultValue": "0"
+			}
+		},
+		"type": "HttpFile",
+		"structure": [
+			{
+				"name": "number",
+				"type": "Int64"
+			},
+			{
+				"name": "date",
+				"type": "String"
+			},
+			{
+				"name": "timezone_type",
+				"type": "Int64"
+			},
+			{
+				"name": "timezone",
+				"type": "String"
+			},
+			{
+				"name": "clientreference",
+				"type": "String"
+			},
+			{
+				"name": "isbasis",
+				"type": "Boolean"
+			},
+			{
+				"name": "archived",
+				"type": "Boolean"
+			},
+			{
+				"name": "workdeliveraddress",
+				"type": "String"
+			},
+			{
+				"name": "id",
+				"type": "Int64"
+			},
+			{
+				"name": "createdon.date",
+				"type": "String"
+			},
+			{
+				"name": "createdon.timezone_type",
+				"type": "Int64"
+			},
+			{
+				"name": "createdon.timezone",
+				"type": "String"
+			},
+			{
+				"name": "updatedon.date",
+				"type": "String"
+			},
+			{
+				"name": "updatedon.timezone_type",
+				"type": "Int64"
+			},
+			{
+				"name": "updatedon.timezone",
+				"type": "String"
+			},
+			{
+				"name": "searchname",
+				"type": "String"
+			},
+			{
+				"name": "name",
+				"type": "String"
+			},
+			{
+				"name": "deadline.date",
+				"type": "String"
+			},
+			{
+				"name": "deadline.timezone_type",
+				"type": "Int64"
+			},
+			{
+				"name": "deadline.timezone",
+				"type": "String"
+			},
+			{
+				"name": "startdate.date",
+				"type": "String"
+			},
+			{
+				"name": "startdate.timezone_type",
+				"type": "Int64"
+			},
+			{
+				"name": "startdate.timezone",
+				"type": "String"
+			},
+			{
+				"name": "addhoursspecification",
+				"type": "Boolean"
+			},
+			{
+				"name": "description",
+				"type": "String"
+			},
+			{
+				"name": "templateset.id",
+				"type": "Int64"
+			},
+			{
+				"name": "templateset.searchname",
+				"type": "String"
+			},
+			{
+				"name": "accountmanager.id",
+				"type": "Int64"
+			},
+			{
+				"name": "accountmanager.searchname",
+				"type": "String"
+			},
+			{
+				"name": "phase.id",
+				"type": "Int64"
+			},
+			{
+				"name": "phase.searchname",
+				"type": "String"
+			},
+			{
+				"name": "company.id",
+				"type": "Int64"
+			},
+			{
+				"name": "company.searchname",
+				"type": "String"
+			},
+			{
+				"name": "identity.id",
+				"type": "Int64"
+			},
+			{
+				"name": "identity.searchname",
+				"type": "String"
+			},
+			{
+				"name": "tags",
+				"type": "String"
+			},
+			{
+				"name": "employees",
+				"type": "String"
+			},
+			{
+				"name": "employees_starred",
+				"type": "String"
+			},
+			{
+				"name": "files",
+				"type": "String"
+			},
+			{
+				"name": "projectlines",
+				"type": "String"
+			},
+			{
+				"name": "viewonlineurl",
+				"type": "String"
+			}
+		],
+		"typeProperties": {
+			"format": {
+				"type": "JsonFormat",
+				"filePattern": "arrayOfObjects",
+				"jsonNodeReference": "$.['result']['rows']",
+				"jsonPathDefinition": {
+					"number": "['number']",
+					"date": "['archivedon']['date']",
+					"timezone_type": "['archivedon']['timezone_type']",
+					"timezone": "['archivedon']['timezone']",
+					"clientreference": "['clientreference']",
+					"isbasis": "['isbasis']",
+					"archived": "['archived']",
+					"workdeliveraddress": "['workdeliveraddress']",
+					"id": "['id']",
+					"createdon.date": "['createdon']['date']",
+					"createdon.timezone_type": "['createdon']['timezone_type']",
+					"createdon.timezone": "['createdon']['timezone']",
+					"updatedon.date": "['updatedon']['date']",
+					"updatedon.timezone_type": "['updatedon']['timezone_type']",
+					"updatedon.timezone": "['updatedon']['timezone']",
+					"searchname": "['searchname']",
+					"name": "['name']",
+					"deadline.date": "['deadline']['date']",
+					"deadline.timezone_type": "['deadline']['timezone_type']",
+					"deadline.timezone": "['deadline']['timezone']",
+					"startdate.date": "['startdate']['date']",
+					"startdate.timezone_type": "['startdate']['timezone_type']",
+					"startdate.timezone": "['startdate']['timezone']",
+					"addhoursspecification": "['addhoursspecification']",
+					"description": "['description']",
+					"templateset.id": "['templateset']['id']",
+					"templateset.searchname": "['templateset']['searchname']",
+					"accountmanager.id": "['accountmanager']['id']",
+					"accountmanager.searchname": "['accountmanager']['searchname']",
+					"phase.id": "['phase']['id']",
+					"phase.searchname": "['phase']['searchname']",
+					"company.id": "['company']['id']",
+					"company.searchname": "['company']['searchname']",
+					"identity.id": "['identity']['id']",
+					"identity.searchname": "['identity']['searchname']",
+					"tags": "['tags']",
+					"employees": "['employees']",
+					"employees_starred": "['employees_starred']",
+					"files": "['files']",
+					"projectlines": "['projectlines']",
+					"viewonlineurl": "['viewonlineurl']"
+				}
+			},
+			"requestMethod": "Post",
+			"requestBody": " [\n \t{\n        \"apitoken\":\"2cimHMloKB6ycXCaGx25B2wR5oP7TZ\",\n        \"method\":\"project.get\",\n        \"params\":[\n            [\n                {\n                    \"field\":\"project.id\",\n                    \"operator\":\"greaterequals\",\n                    \"value\":1\n                }\n            ],\n            {\n                \"paging\":{\n                    \"firstresult\": @{dataset().currentRow},\n                    \"maxresults\":250\n                },\n                \"orderings\":[\n                    {\n                        \"field\":\"project.id\",\n                        \"direction\":\"asc\"\n                    }\n                ]\n            }\n        ],\n        \"id\":1\n    }\n  ]"
+		}
+	}
+}

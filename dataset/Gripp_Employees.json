@@ -1,0 +1,234 @@
+{
+	"name": "Gripp_Employees",
+	"properties": {
+		"description": "Alle employees objecten Gripp",
+		"linkedServiceName": {
+			"referenceName": "GrippServer",
+			"type": "LinkedServiceReference"
+		},
+		"type": "HttpFile",
+		"structure": [
+			{
+				"name": "username",
+				"type": "String"
+			},
+			{
+				"name": "password",
+				"type": "String"
+			},
+			{
+				"name": "active",
+				"type": "Boolean"
+			},
+			{
+				"name": "email",
+				"type": "String"
+			},
+			{
+				"name": "phone",
+				"type": "String"
+			},
+			{
+				"name": "mobile",
+				"type": "String"
+			},
+			{
+				"name": "street",
+				"type": "String"
+			},
+			{
+				"name": "adresline2",
+				"type": "String"
+			},
+			{
+				"name": "streetnumber",
+				"type": "String"
+			},
+			{
+				"name": "zipcode",
+				"type": "String"
+			},
+			{
+				"name": "city",
+				"type": "String"
+			},
+			{
+				"name": "country",
+				"type": "String"
+			},
+			{
+				"name": "function",
+				"type": "String"
+			},
+			{
+				"name": "initials",
+				"type": "String"
+			},
+			{
+				"name": "firstname",
+				"type": "String"
+			},
+			{
+				"name": "infix",
+				"type": "String"
+			},
+			{
+				"name": "lastname",
+				"type": "String"
+			},
+			{
+				"name": "screenname",
+				"type": "String"
+			},
+			{
+				"name": "id",
+				"type": "Int64"
+			},
+			{
+				"name": "updatedon",
+				"type": "String"
+			},
+			{
+				"name": "updatedon.timezone_type",
+				"type": "Int64"
+			},
+			{
+				"name": "updatedon,timezone",
+				"type": "String"
+			},
+			{
+				"name": "searchname",
+				"type": "String"
+			},
+			{
+				"name": "title",
+				"type": "String"
+			},
+			{
+				"name": "number",
+				"type": "Int64"
+			},
+			{
+				"name": "dateofbirth",
+				"type": "String"
+			},
+			{
+				"name": "timezone_type",
+				"type": "Int64"
+			},
+			{
+				"name": "timezone",
+				"type": "String"
+			},
+			{
+				"name": "emailprivate",
+				"type": "String"
+			},
+			{
+				"name": "socialsecuritynumber",
+				"type": "String"
+			},
+			{
+				"name": "bankaccount",
+				"type": "String"
+			},
+			{
+				"name": "bankascription",
+				"type": "String"
+			},
+			{
+				"name": "bankcity",
+				"type": "String"
+			},
+			{
+				"name": "notes",
+				"type": "String"
+			},
+			{
+				"name": "employeesince.date",
+				"type": "String"
+			},
+			{
+				"name": "employeesince.timezone_type",
+				"type": "Int64"
+			},
+			{
+				"name": "employeesince.timezone",
+				"type": "String"
+			},
+			{
+				"name": "userphoto.id",
+				"type": "Int64"
+			},
+			{
+				"name": "userphoto,searchname",
+				"type": "String"
+			},
+			{
+				"name": "role.id",
+				"type": "Int64"
+			},
+			{
+				"name": "role.searchname",
+				"type": "String"
+			},
+			{
+				"name": "tags",
+				"type": "String"
+			}
+		],
+		"typeProperties": {
+			"format": {
+				"type": "JsonFormat",
+				"filePattern": "arrayOfObjects",
+				"jsonNodeReference": "$.['result']['rows']",
+				"jsonPathDefinition": {
+					"username": "['username']",
+					"password": "['password']",
+					"active": "['active']",
+					"email": "['email']",
+					"phone": "['phone']",
+					"mobile": "['mobile']",
+					"street": "['street']",
+					"adresline2": "['adresline2']",
+					"streetnumber": "['streetnumber']",
+					"zipcode": "['zipcode']",
+					"city": "['city']",
+					"country": "['country']",
+					"function": "['function']",
+					"initials": "['initials']",
+					"firstname": "['firstname']",
+					"infix": "['infix']",
+					"lastname": "['lastname']",
+					"screenname": "['screenname']",
+					"id": "['id']",
+					"updatedon": "['updatedon']['date']",
+					"updatedon.timezone_type": "['updatedon']['timezone_type']",
+					"updatedon,timezone": "['updatedon']['timezone']",
+					"searchname": "['searchname']",
+					"title": "['title']",
+					"number": "['number']",
+					"dateofbirth": "['dateofbirth']['date']",
+					"timezone_type": "['dateofbirth']['timezone_type']",
+					"timezone": "['dateofbirth']['timezone']",
+					"emailprivate": "['emailprivate']",
+					"socialsecuritynumber": "['socialsecuritynumber']",
+					"bankaccount": "['bankaccount']",
+					"bankascription": "['bankascription']",
+					"bankcity": "['bankcity']",
+					"notes": "['notes']",
+					"employeesince.date": "['employeesince']['date']",
+					"employeesince.timezone_type": "['employeesince']['timezone_type']",
+					"employeesince.timezone": "['employeesince']['timezone']",
+					"userphoto.id": "['userphoto']['id']",
+					"userphoto,searchname": "['userphoto']['searchname']",
+					"role.id": "['role']['id']",
+					"role.searchname": "['role']['searchname']",
+					"tags": "['tags']"
+				}
+			},
+			"requestMethod": "Post",
+			"requestBody": " [\n \t{\n        \"apitoken\":\"2cimHMloKB6ycXCaGx25B2wR5oP7TZ\",\n        \"method\":\"employee.get\",\n        \"params\":[\n            [\n                {\n                    \"field\":\"employee.id\",\n                    \"operator\":\"greaterequals\",\n                    \"value\":1\n                }\n            ],\n            {\n                \"paging\":{\n                    \"firstresult\":0,\n                    \"maxresults\":50\n                },\n                \"orderings\":[\n                    {\n                        \"field\":\"employee.id\",\n                        \"direction\":\"asc\"\n                    }\n                ]\n            }\n        ],\n        \"id\":1\n    }\n  ]"
+		}
+	}
+}

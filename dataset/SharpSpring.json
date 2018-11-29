@@ -1,0 +1,40 @@
+{
+	"name": "SharpSpring",
+	"properties": {
+		"description": "SharpSpring API",
+		"linkedServiceName": {
+			"referenceName": "SharpSpring",
+			"type": "LinkedServiceReference"
+		},
+		"parameters": {
+			"method": {
+				"type": "String",
+				"defaultValue": "getUserProfiles"
+			},
+			"entiteit": {
+				"type": "String",
+				"defaultValue": "userProfile"
+			},
+			"flowId": {
+				"type": "String",
+				"defaultValue": "123"
+			}
+		},
+		"type": "HttpFile",
+		"typeProperties": {
+			"format": {
+				"type": "JsonFormat",
+				"filePattern": "setOfObjects",
+				"jsonNodeReference": "$.['result']"
+			},
+			"relativeUrl": "",
+			"requestMethod": "Post",
+			"additionalHeaders": "",
+			"requestBody": {
+				"value": "{\n  \"method\": \"@{dataset().method}\",\n  \"params\":{\n    \"where\":\"\"\n  },\n\n  \"id\": \"@{dataset().flowId}\"\n}\n",
+				"type": "Expression"
+			}
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

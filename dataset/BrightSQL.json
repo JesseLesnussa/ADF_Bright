@@ -2,46 +2,21 @@
 	"name": "BrightSQL",
 	"properties": {
 		"linkedServiceName": {
-			"referenceName": "SA_Users",
+			"referenceName": "Bright_sa",
 			"type": "LinkedServiceReference"
 		},
-		"type": "AzureSqlTable",
-		"structure": [
-			{
-				"name": "id",
-				"type": "String"
-			},
-			{
-				"name": "firstName",
-				"type": "String"
-			},
-			{
-				"name": "lastName",
-				"type": "String"
-			},
-			{
-				"name": "displayName",
-				"type": "String"
-			},
-			{
-				"name": "emailAddress",
-				"type": "String"
-			},
-			{
-				"name": "isActive",
-				"type": "String"
-			},
-			{
-				"name": "isReseller",
-				"type": "String"
-			},
-			{
-				"name": "userTimeZone",
-				"type": "String"
+		"parameters": {
+			"Table": {
+				"type": "String",
+				"defaultValue": "SharpSpring_UserProfile"
 			}
-		],
+		},
+		"type": "AzureSqlTable",
 		"typeProperties": {
-			"tableName": "[dbo].[SpringSharp_Users]"
+			"tableName": {
+				"value": "@dataset().Table",
+				"type": "Expression"
+			}
 		}
 	},
 	"type": "Microsoft.DataFactory/factories/datasets"

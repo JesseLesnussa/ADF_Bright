@@ -1,0 +1,166 @@
+{
+	"name": "Gripp",
+	"properties": {
+		"description": "API van Gripp",
+		"linkedServiceName": {
+			"referenceName": "GrippServer",
+			"type": "LinkedServiceReference"
+		},
+		"parameters": {
+			"flowId": {
+				"type": "String",
+				"defaultValue": "123"
+			},
+			"currentRow": {
+				"type": "Int",
+				"defaultValue": 0
+			},
+			"field": {
+				"type": "String",
+				"defaultValue": "project.id"
+			},
+			"method": {
+				"type": "String",
+				"defaultValue": "project.get"
+			}
+		},
+		"type": "HttpFile",
+		"structure": [
+			{
+				"name": "result.count",
+				"type": "Int64"
+			},
+			{
+				"name": "result.start",
+				"type": "Int64"
+			},
+			{
+				"name": "result.limit",
+				"type": "Int64"
+			},
+			{
+				"name": "result.next_start",
+				"type": "Int64"
+			},
+			{
+				"name": "result.more_items_in_collection",
+				"type": "Boolean"
+			},
+			{
+				"name": "number",
+				"type": "Int64"
+			},
+			{
+				"name": "date",
+				"type": "String"
+			},
+			{
+				"name": "timezone_type",
+				"type": "Int64"
+			},
+			{
+				"name": "timezone",
+				"type": "String"
+			},
+			{
+				"name": "clientreference",
+				"type": "String"
+			},
+			{
+				"name": "isbasis",
+				"type": "Boolean"
+			},
+			{
+				"name": "archived",
+				"type": "Boolean"
+			},
+			{
+				"name": "workdeliveraddress",
+				"type": "String"
+			},
+			{
+				"name": "id",
+				"type": "Int64"
+			},
+			{
+				"name": "searchname",
+				"type": "String"
+			},
+			{
+				"name": "name",
+				"type": "String"
+			},
+			{
+				"name": "addhoursspecification",
+				"type": "Boolean"
+			},
+			{
+				"name": "description",
+				"type": "String"
+			},
+			{
+				"name": "tags",
+				"type": "String"
+			},
+			{
+				"name": "employees",
+				"type": "String"
+			},
+			{
+				"name": "employees_starred",
+				"type": "String"
+			},
+			{
+				"name": "files",
+				"type": "String"
+			},
+			{
+				"name": "projectlines",
+				"type": "String"
+			},
+			{
+				"name": "viewonlineurl",
+				"type": "String"
+			}
+		],
+		"typeProperties": {
+			"format": {
+				"type": "JsonFormat",
+				"filePattern": "arrayOfObjects",
+				"jsonNodeReference": "$.['result']['rows']",
+				"jsonPathDefinition": {
+					"result.count": "$.['result']['count']",
+					"result.start": "$.['result']['start']",
+					"result.limit": "$.['result']['limit']",
+					"result.next_start": "$.['result']['next_start']",
+					"result.more_items_in_collection": "$.['result']['more_items_in_collection']",
+					"number": "['number']",
+					"date": "['startdate']['date']",
+					"timezone_type": "['startdate']['timezone_type']",
+					"timezone": "['startdate']['timezone']",
+					"clientreference": "['clientreference']",
+					"isbasis": "['isbasis']",
+					"archived": "['archived']",
+					"workdeliveraddress": "['workdeliveraddress']",
+					"id": "['identity']['id']",
+					"searchname": "['identity']['searchname']",
+					"name": "['name']",
+					"addhoursspecification": "['addhoursspecification']",
+					"description": "['description']",
+					"tags": "['tags']",
+					"employees": "['employees']",
+					"employees_starred": "['employees_starred']",
+					"files": "['files']",
+					"projectlines": "['projectlines']",
+					"viewonlineurl": "['viewonlineurl']"
+				}
+			},
+			"relativeUrl": "",
+			"requestMethod": "Post",
+			"requestBody": {
+				"value": "[\n \t{\n        \"apitoken\":\"2cimHMloKB6ycXCaGx25B2wR5oP7TZ\",\n        \"method\":\"@{dataset().method}\",\n        \"params\":[\n            [\n                {\n                    \"field\":\"@{dataset().field}\",\n                    \"operator\":\"greaterequals\",\n                    \"value\":1\n                }\n            ],\n            {\n                \"paging\":{\n                    \"firstresult\":0,\n                    \"maxresults\":50\n                },\n                \"orderings\":[\n                    {\n                        \"field\":\"@{dataset().field}\",\n                        \"direction\":\"asc\"\n                    }\n                ]\n            }\n        ],\n        \"id\":\"@{dataset().flowId}\"\n    }\n  ]",
+				"type": "Expression"
+			}
+		}
+	}
+}
