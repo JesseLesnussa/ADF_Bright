@@ -224,6 +224,135 @@
 						"type": "DatasetReference"
 					}
 				]
+			},
+			{
+				"name": "While - Gripp hours",
+				"type": "Until",
+				"typeProperties": {
+					"activities": [
+						{
+							"name": "Set Variable1",
+							"type": "SetVariable",
+							"dependsOn": [
+								{
+									"activity": "Copy Data1",
+									"dependencyConditions": [
+										"Succeeded"
+									]
+								}
+							],
+							"typeProperties": {
+								"variableName": "tempCurrentRow",
+								"value": {
+									"value": "@string(add(float(variables('currentRowHour')), float(250)))",
+									"type": "Expression"
+								}
+							}
+						},
+						{
+							"name": "Set Variable2",
+							"type": "SetVariable",
+							"dependsOn": [
+								{
+									"activity": "Set Variable1",
+									"dependencyConditions": [
+										"Succeeded"
+									]
+								}
+							],
+							"typeProperties": {
+								"variableName": "currentRow",
+								"value": {
+									"value": "@variables('tempCurrentRowHour')",
+									"type": "Expression"
+								}
+							}
+						},
+						{
+							"name": "Copy Data1",
+							"type": "Copy",
+							"policy": {
+								"timeout": "7.00:00:00",
+								"retry": 0,
+								"retryIntervalInSeconds": 30,
+								"secureOutput": false,
+								"secureInput": false
+							},
+							"typeProperties": {
+								"source": {
+									"type": "HttpSource",
+									"httpRequestTimeout": "00:01:40"
+								},
+								"sink": {
+									"type": "SqlSink",
+									"writeBatchSize": 10000
+								},
+								"enableStaging": false,
+								"enableSkipIncompatibleRow": false,
+								"dataIntegrationUnits": 0,
+								"translator": {
+									"type": "TabularTranslator",
+									"columnMappings": {
+										"number": "number",
+										"date": "date",
+										"timezone_type": "timezone_type",
+										"timezone": "timezone",
+										"clientreference": "clientreference",
+										"isbasis": "isbasis",
+										"archived": "archived",
+										"workdeliveraddress": "workdeliveraddress",
+										"id": "id",
+										"createdon.date": "createdon.date",
+										"createdon.timezone_type": "createdon.timezone_type",
+										"createdon.timezone": "createdon.timezone",
+										"updatedon.date": "updatedon.date",
+										"updatedon.timezone_type": "updatedon.date.timezone_type",
+										"updatedon.timezone": "updatedon.date.timezone",
+										"searchname": "searchname",
+										"name": "name",
+										"deadline.date": "deadline.date",
+										"deadline.timezone_type": "deadline.timezone_type",
+										"deadline.timezone": "deadline.timezone",
+										"startdate.date": "startdate.date",
+										"startdate.timezone_type": "startdate.timezone_type",
+										"startdate.timezone": "startdate.timezone",
+										"addhoursspecification": "addhoursspecification",
+										"description": "description",
+										"templateset.id": "templateset.id",
+										"templateset.searchname": "templateset.searchname",
+										"accountmanager.id": "accountmanager.id",
+										"accountmanager.searchname": "accountmanager.searchname",
+										"phase.id": "phase.id",
+										"phase.searchname": "phase.searchname",
+										"company.id": "company.id",
+										"company.searchname": "company.searchname",
+										"identity.id": "identity.id",
+										"identity.searchname": "identity.searchname",
+										"tags": "tags",
+										"employees": "employees",
+										"employees_starred": "employees_starred",
+										"files": "files",
+										"projectlines": "projectlines",
+										"viewonlineurl": "viewonlineurl"
+									}
+								}
+							},
+							"inputs": [
+								{
+									"referenceName": "Gripp_Hour",
+									"type": "DatasetReference"
+								}
+							],
+							"outputs": [
+								{
+									"referenceName": "Gripp_Project",
+									"type": "DatasetReference"
+								}
+							]
+						}
+					],
+					"timeout": "7.00:00:00"
+				}
 			}
 		],
 		"variables": {
@@ -242,6 +371,14 @@
 				"defaultValue": "0"
 			},
 			"tempCurrentRow": {
+				"type": "String",
+				"defaultValue": "0"
+			},
+			"currentRowHour": {
+				"type": "String",
+				"defaultValue": "0"
+			},
+			"tempCurrentRowHour": {
 				"type": "String",
 				"defaultValue": "0"
 			}
