@@ -6,6 +6,132 @@
 			"type": "LinkedServiceReference"
 		},
 		"type": "HttpFile",
+		"structure": [
+			{
+				"name": "date",
+				"type": "String"
+			},
+			{
+				"name": "timezone_type",
+				"type": "Int64"
+			},
+			{
+				"name": "timezone",
+				"type": "String"
+			},
+			{
+				"name": "amount",
+				"type": "Double"
+			},
+			{
+				"name": "description",
+				"type": "String"
+			},
+			{
+				"name": "authorizedon.date",
+				"type": "String"
+			},
+			{
+				"name": "authorizedon.timezone_type",
+				"type": "Int64"
+			},
+			{
+				"name": "authorizedon.timezone",
+				"type": "String"
+			},
+			{
+				"name": "definitiveon.date",
+				"type": "String"
+			},
+			{
+				"name": "definitiveon.timezone_type",
+				"type": "Int64"
+			},
+			{
+				"name": "definitiveon.timezone",
+				"type": "String"
+			},
+			{
+				"name": "id",
+				"type": "Int64"
+			},
+			{
+				"name": "createdon.date",
+				"type": "String"
+			},
+			{
+				"name": "createdon.timezone_type",
+				"type": "Int64"
+			},
+			{
+				"name": "createdon.timezone",
+				"type": "String"
+			},
+			{
+				"name": "updatedon.date",
+				"type": "String"
+			},
+			{
+				"name": "updatedon.timezone_type",
+				"type": "Int64"
+			},
+			{
+				"name": "updatedon.timezone",
+				"type": "String"
+			},
+			{
+				"name": "searchname",
+				"type": "String"
+			},
+			{
+				"name": "status.id",
+				"type": "Int64"
+			},
+			{
+				"name": "status.searchname",
+				"type": "String"
+			},
+			{
+				"name": "employee.id",
+				"type": "Int64"
+			},
+			{
+				"name": "employee.searchname",
+				"type": "String"
+			},
+			{
+				"name": "offerprojectbase.id",
+				"type": "Int64"
+			},
+			{
+				"name": "offerprojectbase.searchname",
+				"type": "String"
+			},
+			{
+				"name": "offerprojectline.id",
+				"type": "Int64"
+			},
+			{
+				"name": "offerprojectline.searchname",
+				"type": "String"
+			},
+			{
+				"name": "authorizedby.id",
+				"type": "Int64"
+			},
+			{
+				"name": "authorizedby.searchname",
+				"type": "String"
+			},
+			{
+				"name": "definitiveby.id",
+				"type": "Int64"
+			},
+			{
+				"name": "definitiveby.searchname",
+				"type": "String"
+			}
+		],
 		"typeProperties": {
 			"format": {
 				"type": "JsonFormat",
