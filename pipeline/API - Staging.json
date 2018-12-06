@@ -229,6 +229,10 @@
 				"name": "While - Gripp hours",
 				"type": "Until",
 				"typeProperties": {
+					"expression": {
+						"value": "@greater(int(variables('currentRowHour')),30000)",
+						"type": "Expression"
+					},
 					"activities": [
 						{
 							"name": "Set Variable1",
@@ -299,6 +303,8 @@
 										"amount": "amount",
 										"description": "description",
 										"authorizedon.date": "authorizedon.date",
+										"authorizedon.timezone_type": "authorizedon.timezone_type",
+										"authorizedon.timezone": "authorizedon.timezone",
 										"definitiveon.date": "definitiveon.date",
 										"definitiveon.timezone_type": "definitiveon.timezone_type",
 										"definitiveon.timezone": "definitiveon.timezone",
@@ -316,6 +322,8 @@
 										"employee.searchname": "employee.searchname",
 										"offerprojectbase.id": "offerprojectbase.id",
 										"offerprojectbase.searchname": "offerprojectbase.searchname",
+										"offerprojectline.id": "offerprojectline.id",
+										"offerprojectline.searchname": "offerprojectline.searchname",
 										"authorizedby.id": "authorizedby.id",
 										"authorizedby.searchname": "authorizedby.searchname",
 										"definitiveby.id": "definitiveby.id",
