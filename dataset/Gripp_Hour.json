@@ -179,7 +179,10 @@
 			},
 			"requestMethod": "Post",
 			"additionalHeaders": "",
-			"requestBody": "  [\n    {\n        \"apitoken\":\"2cimHMloKB6ycXCaGx25B2wR5oP7TZ\",\n        \"method\":\"hour.get\",\n        \"params\":[\n            [\n                {\n                    \"field\":\"hour.id\",\n                    \"operator\":\"greaterequals\",\n                    \"value\":1\n                }\n            ],\n            {\n                \"paging\":{\n                    \"firstresult\": @{dataset().firstRow},\n                    \"maxresults\":250\n                },\n                \"orderings\":[\n                    {\n                        \"field\":\"hour.id\",\n                        \"direction\":\"asc\"\n                    }\n                ]\n            }\n        ],\n        \"id\":1\n    }\n]"
+			"requestBody": {
+				"value": "[\n    {\n        \"apitoken\":\"2cimHMloKB6ycXCaGx25B2wR5oP7TZ\",\n        \"method\":\"hour.get\",\n        \"params\":[\n            [\n                {\n                    \"field\":\"hour.id\",\n                    \"operator\":\"greaterequals\",\n                    \"value\":1\n                }\n            ],\n            {\n                \"paging\":{\n                    \"firstresult\": @{dataset().firstRow},\n                    \"maxresults\":250\n                },\n                \"orderings\":[\n                    {\n                        \"field\":\"hour.id\",\n                        \"direction\":\"asc\"\n                    }\n                ]\n            }\n        ],\n        \"id\":1\n    }\n]",
+				"type": "Expression"
+			}
 		}
 	}
 }
