@@ -350,7 +350,13 @@
 							"inputs": [
 								{
 									"referenceName": "Gripp_Hour",
-									"type": "DatasetReference"
+									"type": "DatasetReference",
+									"parameters": {
+										"firstRow": {
+											"value": "@variables('currentRowHour')",
+											"type": "Expression"
+										}
+									}
 								}
 							],
 							"outputs": [
