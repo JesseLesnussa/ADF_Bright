@@ -262,7 +262,7 @@
 								}
 							],
 							"typeProperties": {
-								"variableName": "tempCurrentRow",
+								"variableName": "tempCurrentRowHour",
 								"value": {
 									"value": "@string(add(float(variables('currentRowHour')), float(250)))",
 									"type": "Expression"
