@@ -32,6 +32,14 @@
 				"type": "String"
 			},
 			{
+				"name": "authorizedon.timezone_type",
+				"type": "Int64"
+			},
+			{
+				"name": "authorizedon.timezone",
+				"type": "String"
+			},
+			{
 				"name": "definitiveon.date",
 				"type": "String"
 			},
@@ -97,6 +105,14 @@
 			},
 			{
 				"name": "offerprojectbase.searchname",
+				"type": "String"
+			},
+			{
+				"name": "offerprojectline.id",
+				"type": "Int64"
+			},
+			{
+				"name": "offerprojectline.searchname",
 				"type": "String"
 			},
 			{
