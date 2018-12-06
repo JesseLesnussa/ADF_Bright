@@ -281,7 +281,7 @@
 								}
 							],
 							"typeProperties": {
-								"variableName": "currentRow",
+								"variableName": "currentRowHour",
 								"value": {
 									"value": "@variables('tempCurrentRowHour')",
 									"type": "Expression"
