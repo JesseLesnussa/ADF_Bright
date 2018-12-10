@@ -7,7 +7,7 @@
 				"type": "Until",
 				"dependsOn": [
 					{
-						"activity": "While - Gripp hours",
+						"activity": "While - Gripp tasks",
 						"dependencyConditions": [
 							"Succeeded"
 						]
@@ -244,14 +244,6 @@
 			{
 				"name": "While - Gripp hours",
 				"type": "Until",
-				"dependsOn": [
-					{
-						"activity": "While - Gripp tasks",
-						"dependencyConditions": [
-							"Succeeded"
-						]
-					}
-				],
 				"typeProperties": {
 					"expression": {
 						"value": "@greater(int(variables('currentRowHour')),30000)",
@@ -382,6 +374,14 @@
 			{
 				"name": "While - Gripp tasks",
 				"type": "Until",
+				"dependsOn": [
+					{
+						"activity": "While - Gripp hours",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
 				"typeProperties": {
 					"expression": {
 						"value": "@greater(int(variables('currentRowTask')),10000)",
