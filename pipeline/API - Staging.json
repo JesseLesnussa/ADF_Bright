@@ -351,7 +351,8 @@
 										"authorizedby.id": "authorizedby.id",
 										"authorizedby.searchname": "authorizedby.searchname",
 										"definitiveby.id": "definitiveby.id",
-										"definitiveby.searchname": "definitiveby.searchname"
+										"definitiveby.searchname": "definitiveby.searchname",
+										"task.id": "task.id"
 									}
 								}
 							},
