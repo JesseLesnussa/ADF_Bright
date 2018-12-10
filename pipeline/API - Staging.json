@@ -5,6 +5,14 @@
 			{
 				"name": "While - Gripp projects",
 				"type": "Until",
+				"dependsOn": [
+					{
+						"activity": "While - Gripp hours",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
 				"typeProperties": {
 					"expression": {
 						"value": "@greater(int(variables('currentRow')),2500)",
@@ -144,6 +152,14 @@
 			{
 				"name": "Gripp employee",
 				"type": "Copy",
+				"dependsOn": [
+					{
+						"activity": "While - Gripp projects",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
 				"policy": {
 					"timeout": "7.00:00:00",
 					"retry": 0,
@@ -228,6 +244,14 @@
 			{
 				"name": "While - Gripp hours",
 				"type": "Until",
+				"dependsOn": [
+					{
+						"activity": "While - Gripp tasks",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
 				"typeProperties": {
 					"expression": {
 						"value": "@greater(int(variables('currentRowHour')),30000)",
@@ -359,7 +383,7 @@
 				"type": "Until",
 				"typeProperties": {
 					"expression": {
-						"value": "@greater(int(variables('currentRowHour')),30000)",
+						"value": "@greater(int(variables('currentRowTask')),10000)",
 						"type": "Expression"
 					},
 					"activities": [
@@ -426,37 +450,22 @@
 								"translator": {
 									"type": "TabularTranslator",
 									"columnMappings": {
-										"date": "date",
-										"timezone_type": "timezone_type",
-										"timezone": "timezone",
-										"amount": "amount",
+										"content": "content",
+										"number": "number",
+										"estimatedhours": "estimatedHours",
 										"description": "description",
-										"authorizedon.date": "authorizedon.date",
-										"authorizedon.timezone_type": "authorizedon.timezone_type",
-										"authorizedon.timezone": "authorizedon.timezone",
-										"definitiveon.date": "definitiveon.date",
-										"definitiveon.timezone_type": "definitiveon.timezone_type",
-										"definitiveon.timezone": "definitiveon.timezone",
 										"id": "id",
 										"createdon.date": "createdon.date",
 										"createdon.timezone_type": "createdon.timezone_type",
-										"createdon.timezone": "createdon.timezone",
-										"updatedon.date": "updatedon.date",
-										"updatedon.timezone_type": "updatedon.timezone_type",
-										"updatedon.timezone": "updatedon.timezone",
 										"searchname": "searchname",
-										"status.id": "status.id",
-										"status.searchname": "status.searchname",
-										"employee.id": "employee.id",
-										"employee.searchname": "employee.searchname",
+										"company.id": "company.id",
+										"company.searchname": "company.searchname",
 										"offerprojectbase.id": "offerprojectbase.id",
 										"offerprojectbase.searchname": "offerprojectbase.searchname",
 										"offerprojectline.id": "offerprojectline.id",
 										"offerprojectline.searchname": "offerprojectline.searchname",
-										"authorizedby.id": "authorizedby.id",
-										"authorizedby.searchname": "authorizedby.searchname",
-										"definitiveby.id": "definitiveby.id",
-										"definitiveby.searchname": "definitiveby.searchname"
+										"files": "files",
+										"calendaritems": "calendaritems"
 									}
 								}
 							},

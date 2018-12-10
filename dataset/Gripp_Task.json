@@ -36,6 +36,10 @@
 				"type": "Int64"
 			},
 			{
+				"name": "createdon.timezone",
+				"type": "String"
+			},
+			{
 				"name": "searchname",
 				"type": "String"
 			},
