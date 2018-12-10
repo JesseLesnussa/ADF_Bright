@@ -130,6 +130,10 @@
 			{
 				"name": "definitiveby.searchname",
 				"type": "String"
+			},
+			{
+				"name": "task.id",
+				"type": "Int64"
 			}
 		],
 		"typeProperties": {
