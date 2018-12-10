@@ -457,6 +457,7 @@
 										"id": "id",
 										"createdon.date": "createdon.date",
 										"createdon.timezone_type": "createdon.timezone_type",
+										"createdon.timezone": "createdon.timezone",
 										"searchname": "searchname",
 										"company.id": "company.id",
 										"company.searchname": "company.searchname",
