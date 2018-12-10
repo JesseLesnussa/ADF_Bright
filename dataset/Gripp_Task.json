@@ -1,0 +1,79 @@
+{
+	"name": "Gripp_Task",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "Bright_sa",
+			"type": "LinkedServiceReference"
+		},
+		"type": "AzureSqlTable",
+		"structure": [
+			{
+				"name": "content",
+				"type": "String"
+			},
+			{
+				"name": "number",
+				"type": "Int64"
+			},
+			{
+				"name": "estimatedHours",
+				"type": "Double"
+			},
+			{
+				"name": "description",
+				"type": "String"
+			},
+			{
+				"name": "id",
+				"type": "Int64"
+			},
+			{
+				"name": "createdon.date",
+				"type": "String"
+			},
+			{
+				"name": "createdon.timezone_type",
+				"type": "Int64"
+			},
+			{
+				"name": "searchname",
+				"type": "String"
+			},
+			{
+				"name": "company.id",
+				"type": "Int64"
+			},
+			{
+				"name": "company.searchname",
+				"type": "String"
+			},
+			{
+				"name": "offerprojectbase.id",
+				"type": "Int64"
+			},
+			{
+				"name": "offerprojectbase.searchname",
+				"type": "String"
+			},
+			{
+				"name": "offerprojectline.id",
+				"type": "Int64"
+			},
+			{
+				"name": "offerprojectline.searchname",
+				"type": "String"
+			},
+			{
+				"name": "files",
+				"type": "String"
+			},
+			{
+				"name": "calendaritems",
+				"type": "String"
+			}
+		],
+		"typeProperties": {
+			"tableName": "[dbo].[Gripp_Tasks_structured]"
+		}
+	}
+}
