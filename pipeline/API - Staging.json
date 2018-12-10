@@ -5,14 +5,6 @@
 			{
 				"name": "While - Gripp projects",
 				"type": "Until",
-				"dependsOn": [
-					{
-						"activity": "While - Gripp tasks",
-						"dependencyConditions": [
-							"Succeeded"
-						]
-					}
-				],
 				"typeProperties": {
 					"expression": {
 						"value": "@greater(int(variables('currentRow')),2500)",
@@ -152,14 +144,6 @@
 			{
 				"name": "Gripp employee",
 				"type": "Copy",
-				"dependsOn": [
-					{
-						"activity": "While - Gripp projects",
-						"dependencyConditions": [
-							"Succeeded"
-						]
-					}
-				],
 				"policy": {
 					"timeout": "7.00:00:00",
 					"retry": 0,
@@ -374,14 +358,6 @@
 			{
 				"name": "While - Gripp tasks",
 				"type": "Until",
-				"dependsOn": [
-					{
-						"activity": "While - Gripp hours",
-						"dependencyConditions": [
-							"Succeeded"
-						]
-					}
-				],
 				"typeProperties": {
 					"expression": {
 						"value": "@greater(int(variables('currentRowTask')),10000)",
