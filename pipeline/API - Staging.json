@@ -259,11 +259,11 @@
 					},
 					"activities": [
 						{
-							"name": "Set Variable1",
+							"name": "set TempCurrentRowHour",
 							"type": "SetVariable",
 							"dependsOn": [
 								{
-									"activity": "Copy Data1",
+									"activity": "getHours",
 									"dependencyConditions": [
 										"Succeeded"
 									]
@@ -278,11 +278,11 @@
 							}
 						},
 						{
-							"name": "Set Variable2",
+							"name": "set CurrenRowHour",
 							"type": "SetVariable",
 							"dependsOn": [
 								{
-									"activity": "Set Variable1",
+									"activity": "set TempCurrentRowHour",
 									"dependencyConditions": [
 										"Succeeded"
 									]
@@ -297,7 +297,7 @@
 							}
 						},
 						{
-							"name": "Copy Data1",
+							"name": "getHours",
 							"type": "Copy",
 							"policy": {
 								"timeout": "7.00:00:00",
@@ -389,11 +389,11 @@
 					},
 					"activities": [
 						{
-							"name": "Set Variable1",
+							"name": "set TempCurrentRowTask",
 							"type": "SetVariable",
 							"dependsOn": [
 								{
-									"activity": "Copy Data1",
+									"activity": "getTasks",
 									"dependencyConditions": [
 										"Succeeded"
 									]
@@ -408,11 +408,11 @@
 							}
 						},
 						{
-							"name": "Set Variable2",
+							"name": "set CurrentRowTask",
 							"type": "SetVariable",
 							"dependsOn": [
 								{
-									"activity": "Set Variable1",
+									"activity": "set TempCurrentRowTask",
 									"dependencyConditions": [
 										"Succeeded"
 									]
@@ -427,7 +427,7 @@
 							}
 						},
 						{
-							"name": "Copy Data1",
+							"name": "getTasks",
 							"type": "Copy",
 							"policy": {
 								"timeout": "7.00:00:00",
