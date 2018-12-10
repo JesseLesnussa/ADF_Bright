@@ -136,6 +136,10 @@
 			{
 				"name": "definitiveby.searchname",
 				"type": "String"
+			},
+			{
+				"name": "task.id",
+				"type": "Int64"
 			}
 		],
 		"typeProperties": {
@@ -174,7 +178,8 @@
 					"authorizedby.id": "['authorizedby']['id']",
 					"authorizedby.searchname": "['authorizedby']['searchname']",
 					"definitiveby.id": "['definitiveby']['id']",
-					"definitiveby.searchname": "['definitiveby']['searchname']"
+					"definitiveby.searchname": "['definitiveby']['searchname']",
+					"task.id": "['task']['id']"
 				}
 			},
 			"requestMethod": "Post",
