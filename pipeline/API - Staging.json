@@ -463,12 +463,18 @@
 							"inputs": [
 								{
 									"referenceName": "Gripp_Tasks",
-									"type": "DatasetReference"
+									"type": "DatasetReference",
+									"parameters": {
+										"currentRow": {
+											"value": "@variables('currentRowTask')",
+											"type": "Expression"
+										}
+									}
 								}
 							],
 							"outputs": [
 								{
-									"referenceName": "Gripp_Hours",
+									"referenceName": "Gripp_Task",
 									"type": "DatasetReference"
 								}
 							]
