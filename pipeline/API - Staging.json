@@ -5,14 +5,6 @@
 			{
 				"name": "While - Gripp projects",
 				"type": "Until",
-				"dependsOn": [
-					{
-						"activity": "While - Gripp hours",
-						"dependencyConditions": [
-							"Succeeded"
-						]
-					}
-				],
 				"typeProperties": {
 					"expression": {
 						"value": "@greater(int(variables('currentRow')),2500)",
@@ -152,14 +144,6 @@
 			{
 				"name": "Gripp employee",
 				"type": "Copy",
-				"dependsOn": [
-					{
-						"activity": "While - Gripp hours",
-						"dependencyConditions": [
-							"Succeeded"
-						]
-					}
-				],
 				"policy": {
 					"timeout": "7.00:00:00",
 					"retry": 0,
@@ -369,6 +353,129 @@
 					],
 					"timeout": "7.00:00:00"
 				}
+			},
+			{
+				"name": "While - Gripp tasks",
+				"type": "Until",
+				"typeProperties": {
+					"expression": {
+						"value": "@greater(int(variables('currentRowHour')),30000)",
+						"type": "Expression"
+					},
+					"activities": [
+						{
+							"name": "Set Variable1",
+							"type": "SetVariable",
+							"dependsOn": [
+								{
+									"activity": "Copy Data1",
+									"dependencyConditions": [
+										"Succeeded"
+									]
+								}
+							],
+							"typeProperties": {
+								"variableName": "tempCurrentRowTask",
+								"value": {
+									"value": "@string(add(float(variables('currentRowTask')), float(250)))",
+									"type": "Expression"
+								}
+							}
+						},
+						{
+							"name": "Set Variable2",
+							"type": "SetVariable",
+							"dependsOn": [
+								{
+									"activity": "Set Variable1",
+									"dependencyConditions": [
+										"Succeeded"
+									]
+								}
+							],
+							"typeProperties": {
+								"variableName": "currentRowTask",
+								"value": {
+									"value": "@variables('tempCurrentRowTask')",
+									"type": "Expression"
+								}
+							}
+						},
+						{
+							"name": "Copy Data1",
+							"type": "Copy",
+							"policy": {
+								"timeout": "7.00:00:00",
+								"retry": 0,
+								"retryIntervalInSeconds": 30,
+								"secureOutput": false,
+								"secureInput": false
+							},
+							"typeProperties": {
+								"source": {
+									"type": "HttpSource",
+									"httpRequestTimeout": "00:01:40"
+								},
+								"sink": {
+									"type": "SqlSink",
+									"writeBatchSize": 10000
+								},
+								"enableStaging": false,
+								"enableSkipIncompatibleRow": false,
+								"dataIntegrationUnits": 0,
+								"translator": {
+									"type": "TabularTranslator",
+									"columnMappings": {
+										"date": "date",
+										"timezone_type": "timezone_type",
+										"timezone": "timezone",
+										"amount": "amount",
+										"description": "description",
+										"authorizedon.date": "authorizedon.date",
+										"authorizedon.timezone_type": "authorizedon.timezone_type",
+										"authorizedon.timezone": "authorizedon.timezone",
+										"definitiveon.date": "definitiveon.date",
+										"definitiveon.timezone_type": "definitiveon.timezone_type",
+										"definitiveon.timezone": "definitiveon.timezone",
+										"id": "id",
+										"createdon.date": "createdon.date",
+										"createdon.timezone_type": "createdon.timezone_type",
+										"createdon.timezone": "createdon.timezone",
+										"updatedon.date": "updatedon.date",
+										"updatedon.timezone_type": "updatedon.timezone_type",
+										"updatedon.timezone": "updatedon.timezone",
+										"searchname": "searchname",
+										"status.id": "status.id",
+										"status.searchname": "status.searchname",
+										"employee.id": "employee.id",
+										"employee.searchname": "employee.searchname",
+										"offerprojectbase.id": "offerprojectbase.id",
+										"offerprojectbase.searchname": "offerprojectbase.searchname",
+										"offerprojectline.id": "offerprojectline.id",
+										"offerprojectline.searchname": "offerprojectline.searchname",
+										"authorizedby.id": "authorizedby.id",
+										"authorizedby.searchname": "authorizedby.searchname",
+										"definitiveby.id": "definitiveby.id",
+										"definitiveby.searchname": "definitiveby.searchname"
+									}
+								}
+							},
+							"inputs": [
+								{
+									"referenceName": "Gripp_Tasks",
+									"type": "DatasetReference"
+								}
+							],
+							"outputs": [
+								{
+									"referenceName": "Gripp_Hours",
+									"type": "DatasetReference"
+								}
+							]
+						}
+					],
+					"timeout": "7.00:00:00"
+				}
 			}
 		],
 		"variables": {
@@ -395,6 +502,14 @@
 				"defaultValue": "0"
 			},
 			"tempCurrentRowHour": {
+				"type": "String",
+				"defaultValue": "0"
+			},
+			"currentRowTask": {
+				"type": "String",
+				"defaultValue": "0"
+			},
+			"tempCurrentRowTask": {
 				"type": "String",
 				"defaultValue": "0"
 			}
