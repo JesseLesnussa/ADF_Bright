@@ -8,6 +8,10 @@
 		"type": "AzureSqlTable",
 		"structure": [
 			{
+				"name": "id",
+				"type": "Int64"
+			},
+			{
 				"name": "username",
 				"type": "String"
 			},
@@ -17,7 +21,7 @@
 			},
 			{
 				"name": "active",
-				"type": "String"
+				"type": "Boolean"
 			},
 			{
 				"name": "email",
@@ -80,16 +84,12 @@
 				"type": "String"
 			},
 			{
-				"name": "id",
-				"type": "String"
-			},
-			{
 				"name": "updatedon.date",
-				"type": "String"
+				"type": "DateTime"
 			},
 			{
 				"name": "updatedon.timezone_type",
-				"type": "String"
+				"type": "Int64"
 			},
 			{
 				"name": "updatedon.timezone",
@@ -109,11 +109,11 @@
 			},
 			{
 				"name": "number",
-				"type": "String"
+				"type": "Int64"
 			},
 			{
 				"name": "dateofbirth",
-				"type": "String"
+				"type": "DateTime"
 			},
 			{
 				"name": "emailprivate",
@@ -141,11 +141,11 @@
 			},
 			{
 				"name": "employeesince.date",
-				"type": "String"
+				"type": "DateTime"
 			},
 			{
 				"name": "employeesince.timezone_type",
-				"type": "String"
+				"type": "Int64"
 			},
 			{
 				"name": "employeesince.timezone",
@@ -153,7 +153,7 @@
 			},
 			{
 				"name": "userphoto.id",
-				"type": "String"
+				"type": "Int64"
 			},
 			{
 				"name": "userphoto.searchname",
@@ -161,7 +161,7 @@
 			},
 			{
 				"name": "role.id",
-				"type": "String"
+				"type": "Int64"
 			},
 			{
 				"name": "role.searchname",
@@ -177,7 +177,7 @@
 			}
 		],
 		"typeProperties": {
-			"tableName": "[dbo].[Gripp_Employee_structured]"
+			"tableName": "[dbo].[Gripp_Employees]"
 		}
 	}
 }
