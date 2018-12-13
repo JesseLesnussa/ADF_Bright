@@ -8,12 +8,16 @@
 		"type": "AzureSqlTable",
 		"structure": [
 			{
+				"name": "id",
+				"type": "Int64"
+			},
+			{
 				"name": "number",
 				"type": "Int64"
 			},
 			{
 				"name": "date",
-				"type": "String"
+				"type": "DateTime"
 			},
 			{
 				"name": "timezone_type",
@@ -40,12 +44,8 @@
 				"type": "String"
 			},
 			{
-				"name": "id",
-				"type": "Int64"
-			},
-			{
 				"name": "createdon.date",
-				"type": "String"
+				"type": "DateTime"
 			},
 			{
 				"name": "createdon.timezone_type",
@@ -57,7 +57,7 @@
 			},
 			{
 				"name": "updatedon.date",
-				"type": "String"
+				"type": "DateTime"
 			},
 			{
 				"name": "updatedon.date.timezone_type",
@@ -77,7 +77,7 @@
 			},
 			{
 				"name": "deadline.date",
-				"type": "String"
+				"type": "DateTime"
 			},
 			{
 				"name": "deadline.timezone_type",
@@ -89,7 +89,7 @@
 			},
 			{
 				"name": "startdate.date",
-				"type": "String"
+				"type": "DateTime"
 			},
 			{
 				"name": "startdate.timezone_type",
@@ -173,7 +173,7 @@
 			}
 		],
 		"typeProperties": {
-			"tableName": "[dbo].[Gripp_Project_structured]"
+			"tableName": "[dbo].[Gripp_Projects]"
 		}
 	}
 }
