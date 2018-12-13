@@ -8,8 +8,12 @@
 		"type": "AzureSqlTable",
 		"structure": [
 			{
+				"name": "id",
+				"type": "Int64"
+			},
+			{
 				"name": "date",
-				"type": "String"
+				"type": "DateTime"
 			},
 			{
 				"name": "timezone_type",
@@ -29,7 +33,7 @@
 			},
 			{
 				"name": "authorizedon.date",
-				"type": "String"
+				"type": "DateTime"
 			},
 			{
 				"name": "authorizedon.timezone_type",
@@ -41,7 +45,7 @@
 			},
 			{
 				"name": "definitiveon.date",
-				"type": "String"
+				"type": "DateTime"
 			},
 			{
 				"name": "definitiveon.timezone_type",
@@ -52,12 +56,8 @@
 				"type": "String"
 			},
 			{
-				"name": "id",
-				"type": "Int64"
-			},
-			{
 				"name": "createdon.date",
-				"type": "String"
+				"type": "DateTime"
 			},
 			{
 				"name": "createdon.timezone_type",
@@ -69,7 +69,7 @@
 			},
 			{
 				"name": "updatedon.date",
-				"type": "String"
+				"type": "DateTime"
 			},
 			{
 				"name": "updatedon.timezone_type",
@@ -137,7 +137,7 @@
 			}
 		],
 		"typeProperties": {
-			"tableName": "[dbo].[Gripp_Hour]"
+			"tableName": "[dbo].[Gripp_Hours]"
 		}
 	}
 }
