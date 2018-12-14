@@ -519,6 +519,32 @@
 					"referenceName": "Bright_sa",
 					"type": "LinkedServiceReference"
 				}
+			},
+			{
+				"name": "Insert Projectlines_Employees",
+				"type": "SqlServerStoredProcedure",
+				"dependsOn": [
+					{
+						"activity": "While - Gripp projects",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"typeProperties": {
+					"storedProcedureName": "[dbo].[sp_Insert_Projectlines_Employees]"
+				},
+				"linkedServiceName": {
+					"referenceName": "Bright_sa",
+					"type": "LinkedServiceReference"
+				}
 			}
 		],
 		"variables": {
