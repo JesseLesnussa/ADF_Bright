@@ -5,6 +5,14 @@
 			{
 				"name": "While - Gripp projects",
 				"type": "Until",
+				"dependsOn": [
+					{
+						"activity": "Stored Procedure1",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
 				"typeProperties": {
 					"expression": {
 						"value": "@greater(int(variables('currentRow')),2500)",
@@ -144,6 +152,14 @@
 			{
 				"name": "Gripp employee",
 				"type": "Copy",
+				"dependsOn": [
+					{
+						"activity": "Stored Procedure1",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
 				"policy": {
 					"timeout": "7.00:00:00",
 					"retry": 0,
@@ -228,6 +244,14 @@
 			{
 				"name": "While - Gripp hours",
 				"type": "Until",
+				"dependsOn": [
+					{
+						"activity": "Stored Procedure1",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
 				"typeProperties": {
 					"expression": {
 						"value": "@greater(int(variables('currentRowHour')),30000)",
@@ -358,6 +382,14 @@
 			{
 				"name": "While - Gripp tasks",
 				"type": "Until",
+				"dependsOn": [
+					{
+						"activity": "Stored Procedure1",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
 				"typeProperties": {
 					"expression": {
 						"value": "@greater(int(variables('currentRowTask')),10000)",
@@ -468,6 +500,50 @@
 						}
 					],
 					"timeout": "7.00:00:00"
+				}
+			},
+			{
+				"name": "Stored Procedure1",
+				"type": "SqlServerStoredProcedure",
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"typeProperties": {
+					"storedProcedureName": "[dbo].[sp_purge_staging]"
+				},
+				"linkedServiceName": {
+					"referenceName": "Bright_sa",
+					"type": "LinkedServiceReference"
+				}
+			},
+			{
+				"name": "Stored Procedure2",
+				"type": "SqlServerStoredProcedure",
+				"dependsOn": [
+					{
+						"activity": "While - Gripp projects",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"typeProperties": {
+					"storedProcedureName": "[dbo].[sp_Insert_Projectlines_Employees]"
+				},
+				"linkedServiceName": {
+					"referenceName": "Bright_sa",
+					"type": "LinkedServiceReference"
 				}
 			}
 		],
