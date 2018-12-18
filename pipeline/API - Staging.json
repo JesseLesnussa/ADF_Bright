@@ -7,7 +7,7 @@
 				"type": "Until",
 				"dependsOn": [
 					{
-						"activity": "Stored Procedure1",
+						"activity": "SP - Purge Staging Area",
 						"dependencyConditions": [
 							"Succeeded"
 						]
@@ -154,7 +154,7 @@
 				"type": "Copy",
 				"dependsOn": [
 					{
-						"activity": "Stored Procedure1",
+						"activity": "SP - Purge Staging Area",
 						"dependencyConditions": [
 							"Succeeded"
 						]
@@ -246,7 +246,7 @@
 				"type": "Until",
 				"dependsOn": [
 					{
-						"activity": "Stored Procedure1",
+						"activity": "SP - Purge Staging Area",
 						"dependencyConditions": [
 							"Succeeded"
 						]
@@ -384,7 +384,7 @@
 				"type": "Until",
 				"dependsOn": [
 					{
-						"activity": "Stored Procedure1",
+						"activity": "SP - Purge Staging Area",
 						"dependencyConditions": [
 							"Succeeded"
 						]
@@ -503,7 +503,7 @@
 				}
 			},
 			{
-				"name": "Stored Procedure1",
+				"name": "SP - Purge Staging Area",
 				"type": "SqlServerStoredProcedure",
 				"policy": {
 					"timeout": "7.00:00:00",
@@ -521,7 +521,7 @@
 				}
 			},
 			{
-				"name": "Stored Procedure2",
+				"name": "SP - Cursor projectlines",
 				"type": "SqlServerStoredProcedure",
 				"dependsOn": [
 					{
