@@ -74,7 +74,7 @@
 								},
 								"sink": {
 									"type": "SqlSink",
-									"writeBatchSize": 10000
+									"writeBatchSize": 250
 								},
 								"enableStaging": false,
 								"enableSkipIncompatibleRow": false,
@@ -174,7 +174,7 @@
 					},
 					"sink": {
 						"type": "SqlSink",
-						"writeBatchSize": 10000,
+						"writeBatchSize": 1000000,
 						"preCopyScript": ""
 					},
 					"enableStaging": false,
@@ -451,7 +451,7 @@
 								},
 								"sink": {
 									"type": "SqlSink",
-									"writeBatchSize": 10000
+									"writeBatchSize": 250
 								},
 								"enableStaging": false,
 								"enableSkipIncompatibleRow": false,
