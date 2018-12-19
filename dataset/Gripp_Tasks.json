@@ -1,0 +1,114 @@
+{
+	"name": "Gripp_Tasks",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "GrippServer",
+			"type": "LinkedServiceReference"
+		},
+		"parameters": {
+			"currentRow": {
+				"type": "String",
+				"defaultValue": "0"
+			}
+		},
+		"type": "HttpFile",
+		"structure": [
+			{
+				"name": "content",
+				"type": "String"
+			},
+			{
+				"name": "number",
+				"type": "Int64"
+			},
+			{
+				"name": "estimatedhours",
+				"type": "Double"
+			},
+			{
+				"name": "description",
+				"type": "String"
+			},
+			{
+				"name": "id",
+				"type": "Int64"
+			},
+			{
+				"name": "createdon.date",
+				"type": "String"
+			},
+			{
+				"name": "createdon.timezone_type",
+				"type": "Int64"
+			},
+			{
+				"name": "createdon.timezone",
+				"type": "String"
+			},
+			{
+				"name": "searchname",
+				"type": "String"
+			},
+			{
+				"name": "company.id",
+				"type": "Int64"
+			},
+			{
+				"name": "company.searchname",
+				"type": "String"
+			},
+			{
+				"name": "offerprojectbase.id",
+				"type": "Int64"
+			},
+			{
+				"name": "offerprojectbase.searchname",
+				"type": "String"
+			},
+			{
+				"name": "offerprojectline.id",
+				"type": "Int64"
+			},
+			{
+				"name": "offerprojectline.searchname",
+				"type": "String"
+			},
+			{
+				"name": "files",
+				"type": "String"
+			},
+			{
+				"name": "calendaritems",
+				"type": "String"
+			}
+		],
+		"typeProperties": {
+			"format": {
+				"type": "JsonFormat",
+				"filePattern": "arrayOfObjects",
+				"jsonNodeReference": "$.['result']['rows']",
+				"jsonPathDefinition": {
+					"content": "['content']",
+					"number": "['number']",
+					"estimatedhours": "['estimatedhours']",
+					"description": "['description']",
+					"id": "['id']",
+					"createdon.date": "['createdon']['date']",
+					"createdon.timezone_type": "['createdon']['timezone_type']",
+					"createdon.timezone": "['createdon']['timezone']",
+					"searchname": "['searchname']",
+					"company.id": "['company']['id']",
+					"company.searchname": "['company']['searchname']",
+					"offerprojectbase.id": "['offerprojectbase']['id']",
+					"offerprojectbase.searchname": "['offerprojectbase']['searchname']",
+					"offerprojectline.id": "['offerprojectline']['id']",
+					"offerprojectline.searchname": "['offerprojectline']['searchname']",
+					"files": "['files']",
+					"calendaritems": "['calendaritems']"
+				}
+			},
+			"requestMethod": "Post",
+			"requestBody": "[\n    {\n        \"apitoken\":\"2cimHMloKB6ycXCaGx25B2wR5oP7TZ\",\n        \"method\":\"task.get\",\n        \"params\":[\n            [\n                {\n                    \"field\":\"task.id\",\n                    \"operator\":\"greaterequals\",\n                    \"value\":1\n                }\n            ],\n            {\n                \"paging\":{\n                    \"firstresult\": @{dataset().currentRow},\n                    \"maxresults\":250\n                },\n                \"orderings\":[\n                    {\n                        \"field\":\"task.id\",\n                        \"direction\":\"asc\"\n                    }\n                ]\n            }\n        ],\n        \"id\":1\n    }\n]"
+		}
+	}
+}

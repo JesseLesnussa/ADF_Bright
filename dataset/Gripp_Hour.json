@@ -1,0 +1,193 @@
+{
+	"name": "Gripp_Hour",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "GrippServer",
+			"type": "LinkedServiceReference"
+		},
+		"parameters": {
+			"firstRow": {
+				"type": "String",
+				"defaultValue": "0"
+			}
+		},
+		"type": "HttpFile",
+		"structure": [
+			{
+				"name": "date",
+				"type": "String"
+			},
+			{
+				"name": "timezone_type",
+				"type": "Int64"
+			},
+			{
+				"name": "timezone",
+				"type": "String"
+			},
+			{
+				"name": "amount",
+				"type": "Double"
+			},
+			{
+				"name": "description",
+				"type": "String"
+			},
+			{
+				"name": "authorizedon.date",
+				"type": "String"
+			},
+			{
+				"name": "authorizedon.timezone_type",
+				"type": "Int64"
+			},
+			{
+				"name": "authorizedon.timezone",
+				"type": "String"
+			},
+			{
+				"name": "definitiveon.date",
+				"type": "String"
+			},
+			{
+				"name": "definitiveon.timezone_type",
+				"type": "Int64"
+			},
+			{
+				"name": "definitiveon.timezone",
+				"type": "String"
+			},
+			{
+				"name": "id",
+				"type": "Int64"
+			},
+			{
+				"name": "createdon.date",
+				"type": "String"
+			},
+			{
+				"name": "createdon.timezone_type",
+				"type": "Int64"
+			},
+			{
+				"name": "createdon.timezone",
+				"type": "String"
+			},
+			{
+				"name": "updatedon.date",
+				"type": "String"
+			},
+			{
+				"name": "updatedon.timezone_type",
+				"type": "Int64"
+			},
+			{
+				"name": "updatedon.timezone",
+				"type": "String"
+			},
+			{
+				"name": "searchname",
+				"type": "String"
+			},
+			{
+				"name": "status.id",
+				"type": "Int64"
+			},
+			{
+				"name": "status.searchname",
+				"type": "String"
+			},
+			{
+				"name": "employee.id",
+				"type": "Int64"
+			},
+			{
+				"name": "employee.searchname",
+				"type": "String"
+			},
+			{
+				"name": "offerprojectbase.id",
+				"type": "Int64"
+			},
+			{
+				"name": "offerprojectbase.searchname",
+				"type": "String"
+			},
+			{
+				"name": "offerprojectline.id",
+				"type": "Int64"
+			},
+			{
+				"name": "offerprojectline.searchname",
+				"type": "String"
+			},
+			{
+				"name": "authorizedby.id",
+				"type": "Int64"
+			},
+			{
+				"name": "authorizedby.searchname",
+				"type": "String"
+			},
+			{
+				"name": "definitiveby.id",
+				"type": "Int64"
+			},
+			{
+				"name": "definitiveby.searchname",
+				"type": "String"
+			},
+			{
+				"name": "task.id",
+				"type": "Int64"
+			}
+		],
+		"typeProperties": {
+			"format": {
+				"type": "JsonFormat",
+				"filePattern": "arrayOfObjects",
+				"jsonNodeReference": "$.['result']['rows']",
+				"jsonPathDefinition": {
+					"date": "['date']['date']",
+					"timezone_type": "['date']['timezone_type']",
+					"timezone": "['date']['timezone']",
+					"amount": "['amount']",
+					"description": "['description']",
+					"authorizedon.date": "['authorizedon']['date']",
+					"authorizedon.timezone_type": "['authorizedon']['timezone_type']",
+					"authorizedon.timezone": "['authorizedon']['timezone']",
+					"definitiveon.date": "['definitiveon']['date']",
+					"definitiveon.timezone_type": "['definitiveon']['timezone_type']",
+					"definitiveon.timezone": "['definitiveon']['timezone']",
+					"id": "['id']",
+					"createdon.date": "['createdon']['date']",
+					"createdon.timezone_type": "['createdon']['timezone_type']",
+					"createdon.timezone": "['createdon']['timezone']",
+					"updatedon.date": "['updatedon']['date']",
+					"updatedon.timezone_type": "['updatedon']['timezone_type']",
+					"updatedon.timezone": "['updatedon']['timezone']",
+					"searchname": "['searchname']",
+					"status.id": "['status']['id']",
+					"status.searchname": "['status']['searchname']",
+					"employee.id": "['employee']['id']",
+					"employee.searchname": "['employee']['searchname']",
+					"offerprojectbase.id": "['offerprojectbase']['id']",
+					"offerprojectbase.searchname": "['offerprojectbase']['searchname']",
+					"offerprojectline.id": "['offerprojectline']['id']",
+					"offerprojectline.searchname": "['offerprojectline']['searchname']",
+					"authorizedby.id": "['authorizedby']['id']",
+					"authorizedby.searchname": "['authorizedby']['searchname']",
+					"definitiveby.id": "['definitiveby']['id']",
+					"definitiveby.searchname": "['definitiveby']['searchname']",
+					"task.id": "['task']['id']"
+				}
+			},
+			"requestMethod": "Post",
+			"additionalHeaders": "",
+			"requestBody": {
+				"value": "[\n    {\n        \"apitoken\":\"2cimHMloKB6ycXCaGx25B2wR5oP7TZ\",\n        \"method\":\"hour.get\",\n        \"params\":[\n            [\n                {\n                    \"field\":\"hour.id\",\n                    \"operator\":\"greaterequals\",\n                    \"value\":1\n                }\n            ],\n            {\n                \"paging\":{\n                    \"firstresult\": @{dataset().firstRow},\n                    \"maxresults\":250\n                },\n                \"orderings\":[\n                    {\n                        \"field\":\"hour.id\",\n                        \"direction\":\"asc\"\n                    }\n                ]\n            }\n        ],\n        \"id\":1\n    }\n]",
+				"type": "Expression"
+			}
+		}
+	}
+}
